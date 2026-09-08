@@ -1,0 +1,24 @@
+{
+  "name": "snowbitx-ui",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --filter @snowbitx/demo dev",
+    "dev:playground": "pnpm --filter @snowbitx/playground dev",
+    "build": "pnpm -r build",
+    "type-check": "pnpm -r type-check",
+    "lint": "pnpm -r lint",
+    "format": "prettier --write \"**/src/**/*.{ts,vue,js,json}\"",
+    "gen:pages": "pnpm --filter @snowbitx/page-generator gen",
+    "mock": "node scripts/mock-server/server.mjs",
+    "mock:start": "pnpm mock & pnpm gen:pages"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.32",
+    "eslint": "^9.29.0",
+    "prettier": "3.5.3",
+    "typescript": "~5.8.0",
+    "vue": "^3.5.17"
+  },
+  "packageManager": "pnpm@10.33.2"
+}

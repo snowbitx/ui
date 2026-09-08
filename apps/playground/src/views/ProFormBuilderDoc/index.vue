@@ -1,0 +1,173 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import { ProFormBuilder } from '@snowbitx/ui'
+import DemoBlock from '@/components/DemoBlock/index.vue'
+import type { ApiColumn } from '@/components/ApiTable'
+import BasicDemo from './demos/basic.vue'
+import CustomTypeDemo from './demos/custom-type.vue'
+import LayoutDemo from './demos/layout.vue'
+import demoSource from './demos/basic.vue?raw'
+import demoSourceJs from './demos/basic.vue.js?raw'
+import customTypeSource from './demos/custom-type.vue?raw'
+import customTypeSourceJs from './demos/custom-type.vue.js?raw'
+import layoutSource from './demos/layout.vue?raw'
+
+defineOptions({
+  name: 'ProFormBuilderDoc',
+})
+
+const propsTableColumns = [
+  { title: '参数', dataIndex: 'name' },
+  { title: '说明', dataIndex: 'description' },
+  { title: '类型', dataIndex: 'type' },
+  { title: '默认值', dataIndex: 'default' },
+]
+
+const propsColumns: ApiColumn[] = [
+  {
+    name: 'formItems',
+    description: '表单项配置数组，每项包含 label / key / type',
+    type: 'FormItem[]',
+    default: '-',
+  },
+  {
+    name: 'rules',
+    description: '校验规则，同 a-form rules，key 对应表单项 key',
+    type: 'any',
+    default: '-',
+  },
+  {
+    name: 'v-model (modelValue)',
+    description: '表单数据对象',
+    type: 'Record<string, any>',
+    default: '{}',
+  },
+]
+
+const itemPropsColumns: ApiColumn[] = [
+  { name: 'label', description: '表单项标签', type: 'string', default: '-' },
+  { name: 'key', description: '字段名，对应 formData 里的属性', type: 'string', default: '-' },
+  {
+    name: 'type',
+    description:
+      '内置类型：input / textarea / number / date / select / checkbox / modal；也可直接传组件',
+    type: "string | Component",
+    default: "'input'",
+  },
+  {
+    name: 'span',
+    description: '该单项的栅格数（24 栅格），不传用组件的 span',
+    type: 'number',
+    default: '24',
+  },
+  {
+    name: 'hidden',
+    description: '隐藏该项，配合 computed 配置可做联动显隐',
+    type: 'boolean',
+    default: 'false',
+  },
+  {
+    name: 'props',
+    description: '直接透传给渲染组件的 props（设置后忽略其余顶层字段）',
+    type: 'Record<string, any>',
+    default: '-',
+  },
+  {
+    name: 'options / placeholder / ...',
+    description: '其余字段会原样透传给渲染的组件（如 options、onChange 等）',
+    type: 'any',
+    default: '-',
+  },
+  {
+    name: 'slots',
+    description: '配置式插槽，传给渲染的组件',
+    type: 'Record<string, any>',
+    default: '-',
+  },
+]
+
+const exposeColumns: ApiColumn[] = [
+  {
+    name: '（表单实例）',
+    description: '组件把 a-form 的实例暴露了出来，可直接调用 validate / resetFields 等方法',
+    type: 'FormInstance',
+    default: '-',
+  },
+]
+
+const validateResult = ref('还没校验')
+
+function onValidate(vm: any) {
+  vm.validate()
+    .then(() => {
+      validateResult.value = '校验通过 ✅，数据在控制台'
+      console.log('表单数据', basicRefData)
+    })
+    .catch(() => {
+      validateResult.value = '校验失败 ❌'
+    })
+}
+
+let basicRefData: Record<string, any> = {}
+function onBind(data: Record<string, any>) {
+  basicRefData = data
+}
+</script>
+
+<template>
+  <div>
+    <h1>ProFormBuilder 配置式表单</h1>
+    <p>
+      通过 JSON 数组渲染表单，是 ProTable 弹窗表单的底层。内置类型会自动处理 ant-design-vue 的
+      v-model 差异（<code>value</code> / <code>checked</code> / <code>open</code>）。
+    </p>
+
+    <DemoBlock title="基础用法（v-model 双向绑定）" :code="demoSource" :js-code="demoSourceJs">
+      <BasicDemo @bind="onBind" @validate="onValidate" />
+    </DemoBlock>
+
+    <DemoBlock title="使用内置类型 input / select / checkbox" :code="customTypeSource" :js-code="customTypeSourceJs">
+      <CustomTypeDemo />
+    </DemoBlock>
+
+    <DemoBlock title="栅格布局 + hidden 联动显隐（选城市后出现备注）" :code="layoutSource">
+      <LayoutDemo />
+    </DemoBlock>
+
+    <p>当前校验状态：{{ validateResult }}</p>
+
+    <h2>API</h2>
+    <h3>Props</h3>
+    <a-table
+      :data-source="propsColumns"
+      :columns="propsTableColumns"
+      :pagination="false"
+      size="small"
+    />
+
+    <h3>formItems 每一项</h3>
+    <a-table
+      :data-source="itemPropsColumns"
+      :columns="[
+        { title: '字段', dataIndex: 'name' },
+        { title: '说明', dataIndex: 'description' },
+        { title: '类型', dataIndex: 'type' },
+        { title: '默认值', dataIndex: 'default' },
+      ]"
+      :pagination="false"
+      size="small"
+    />
+
+    <h3>Expose</h3>
+    <a-table
+      :data-source="exposeColumns"
+      :columns="[
+        { title: '方法', dataIndex: 'name' },
+        { title: '说明', dataIndex: 'description' },
+        { title: '类型', dataIndex: 'type' },
+      ]"
+      :pagination="false"
+      size="small"
+    />
+  </div>
+</template>

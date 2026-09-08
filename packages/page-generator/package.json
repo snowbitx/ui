@@ -1,0 +1,24 @@
+{
+  "name": "@snowbitx/page-generator",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "从远端 JSON 页面描述生成 vue 文件的脚本包",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "gen": "node ./src/cli.mjs",
+    "type-check": "tsc --noEmit -p tsconfig.json"
+  },
+  "bin": {
+    "gen-pages": "./src/cli.mjs"
+  },
+  "dependencies": {
+    "prettier": "3.5.3"
+  },
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.2",
+    "@types/node": "^22.15.32",
+    "typescript": "~5.8.0"
+  }
+}
