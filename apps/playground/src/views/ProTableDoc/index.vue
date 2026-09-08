@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { showImport } from '@/utils/showImport'
+import { showImport, docTerm } from '@/utils/showImport'
 import { ProTable, createApis } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
 import DemoTable from '@/components/DemoTable/index.vue'
@@ -42,14 +42,14 @@ const propsColumns: ApiColumn[] = [
     type: '{ get, create, update, remove }',
     default: '-',
   },
-  { name: 'columns', description: '表格列定义，同 a-table columns', type: 'any[]', default: '-' },
+  { name: 'columns', description: `表格列定义，同 ${docTerm('a-table', 'el-table')} columns`, type: 'any[]', default: '-' },
   {
     name: 'formItems',
     description: '表单项定义，透传给 ProFormBuilder',
     type: 'any[]',
     default: '-',
   },
-  { name: 'rules', description: '表单校验规则，同 a-form rules', type: 'any', default: '-' },
+  { name: 'rules', description: `表单校验规则，同 ${docTerm('a-form', 'el-form')} rules`, type: 'any', default: '-' },
   { name: 'rowKey', description: '行 key 的字段名', type: 'string', default: "'id'" },
   {
     name: 'beforeCreate',

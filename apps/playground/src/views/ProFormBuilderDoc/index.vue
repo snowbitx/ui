@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { showImport } from '@/utils/showImport'
+import { showImport, docTerm } from '@/utils/showImport'
 import { ref } from 'vue'
 import { ProFormBuilder } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
@@ -34,7 +34,7 @@ const propsColumns: ApiColumn[] = [
   },
   {
     name: 'rules',
-    description: '校验规则，同 a-form rules，key 对应表单项 key',
+    description: `校验规则，同 ${docTerm('a-form', 'el-form')} rules，key 对应表单项 key`,
     type: 'any',
     default: '-',
   },
@@ -91,7 +91,7 @@ const itemPropsColumns: ApiColumn[] = [
 const exposeColumns: ApiColumn[] = [
   {
     name: '（表单实例）',
-    description: '组件把 a-form 的实例暴露了出来，可直接调用 validate / resetFields 等方法',
+    description: `组件把 ${docTerm('a-form', 'el-form')} 的实例暴露了出来，可直接调用 validate / resetFields 等方法`,
     type: 'FormInstance',
     default: '-',
   },

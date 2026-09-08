@@ -10,7 +10,7 @@ const formData = ref({
 });
 const formItems = [
     { label: '姓名', key: 'name', type: 'input' },
-    // select：选项通过 options 透传给 a-select
+    // select：选项通过 options 透传给内部选择组件
     {
         label: '性别',
         key: 'gender',

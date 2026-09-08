@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { showImport } from '@/utils/showImport'
+import { showImport, docTerm } from '@/utils/showImport'
 import { h } from 'vue'
 import { openDialog } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
@@ -29,7 +29,7 @@ const propsColumns: ApiColumn[] = [
   },
   {
     name: 'modelProps',
-    description: 'a-modal 的配置（title / onOk / onCancel 等）；title 支持传函数实现响应式',
+    description: `${docTerm('a-modal', 'el-dialog')} 的配置（title / onOk / onCancel 等）；title 支持传函数实现响应式`,
     type: 'ModalProps',
     default: '{}',
   },
@@ -56,7 +56,7 @@ const behaviorColumns: ApiColumn[] = [
   <div>
     <h1>openDialog 命令式弹窗</h1>
     <p>
-      不用在模板里预置 a-modal，随时一行代码弹出一个「带提交逻辑」的弹窗。ProTable
+      不用在模板里预置 {{ docTerm('a-modal', 'el-dialog') }}，随时一行代码弹出一个「带提交逻辑」的弹窗。ProTable
       的新增/修改弹窗内部就是用它实现的。
     </p>
 

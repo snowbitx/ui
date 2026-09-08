@@ -55,7 +55,6 @@ export const menus = [
   { path: '/pro-form-builder', title: 'ProFormBuilder 表单' },
   { path: '/open-dialog', title: 'openDialog 弹窗' },
   { path: '/pro-button', title: 'ProButton 按钮' },
-  { path: '/pro-button', title: 'ProButton 按钮' },
   { path: '/pro-input', title: 'ProInput 输入框' },
   { path: '/pro-select', title: 'ProSelect 下拉选择' },
   { path: '/pro-checkbox-group', title: 'ProCheckboxGroup 多选组' },

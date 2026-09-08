@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { showImport } from '@/utils/showImport'
+import { showImport, docTerm } from '@/utils/showImport'
 import { ProButton, ProCountdownButton } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
 import DemoTable from '@/components/DemoTable/index.vue'
@@ -58,7 +58,7 @@ const countdownProps: ApiColumn[] = [
   <div>
     <h1>ProButton 按钮</h1>
     <p>
-      在 a-button 基础上内置防抖与 async 自动 loading，其余 props / 事件 / 插槽与 a-button
+      在 {{ docTerm('a-button', 'el-button') }} 基础上内置防抖与 async 自动 loading，其余 props / 事件 / 插槽与 {{ docTerm('a-button', 'el-button') }}
       完全一致。
     </p>
 

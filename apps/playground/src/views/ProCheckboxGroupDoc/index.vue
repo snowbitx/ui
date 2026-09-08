@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { showImport } from '@/utils/showImport'
+import { showImport, docTerm } from '@/utils/showImport'
 import { ProCheckboxGroup, ProRadioGroup } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
 import OptionsDemo from './demos/options.vue'
@@ -16,7 +16,7 @@ defineOptions({
     <h1>ProCheckboxGroup / ProRadioGroup 选择组</h1>
     <p>
       与 ProSelect 相同的 options 配置驱动：静态数组、字符串数组、远程字典函数。其余用法分别与
-      a-checkbox-group / a-radio-group 一致。
+      {{ docTerm('a-checkbox-group', 'el-checkbox-group') }} / {{ docTerm('a-radio-group', 'el-radio-group') }} 一致。
     </p>
 
     <DemoBlock title="options 数据源" :code="showImport(optionsSource)" :js-code="showImport(optionsSourceJs)">

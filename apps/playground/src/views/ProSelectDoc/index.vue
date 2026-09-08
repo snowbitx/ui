@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { showImport } from '@/utils/showImport'
+import { showImport, docTerm } from '@/utils/showImport'
 import { ProSelect } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
 import DemoTable from '@/components/DemoTable/index.vue'
@@ -42,9 +42,9 @@ const propsColumns: ApiColumn[] = [
   <div>
     <h1>ProSelect 下拉选择</h1>
     <p>
-      在 a-select 基础上支持 options
+      在 {{ docTerm('a-select', 'el-select') }} 基础上支持 options
       配置驱动：静态数组、字符串数组、远程字典函数三种数据源，远程字典自动展示 loading；配合 deps
-      可以做级联联动。其余用法与 a-select 一致。
+      可以做级联联动。其余用法与 {{ docTerm('a-select', 'el-select') }} 一致。
     </p>
 
     <DemoBlock title="三种数据源" :code="showImport(optionsSource)" :js-code="showImport(optionsSourceJs)">

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { showImport } from '@/utils/showImport'
+import { showImport, docTerm } from '@/utils/showImport'
 import { ProConfirmButton } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
 import DemoTable from '@/components/DemoTable/index.vue'
@@ -22,7 +22,7 @@ const propsColumns: ApiColumn[] = [
   },
   {
     name: '（其余）',
-    description: 'type / danger / disabled 等，透传给内部 a-button',
+    description: `type / danger / disabled 等，透传给内部 ${docTerm('a-button', 'el-button')}`,
     type: 'ButtonProps',
     default: '-',
   },

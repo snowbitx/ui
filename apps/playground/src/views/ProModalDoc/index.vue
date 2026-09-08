@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { showImport } from '@/utils/showImport'
+import { showImport, docTerm } from '@/utils/showImport'
 import { ProModal } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
 import DemoTable from '@/components/DemoTable/index.vue'
@@ -22,7 +22,7 @@ const propsColumns: ApiColumn[] = [
   },
   {
     name: '（其余）',
-    description: 'title / width / footer 等，全部透传给 a-modal',
+    description: `title / width / footer 等，全部透传给 ${docTerm('a-modal', 'el-dialog')}`,
     type: 'ModalProps',
     default: '-',
   },
@@ -42,7 +42,7 @@ const eventsColumns: ApiColumn[] = [
   <div>
     <h1>ProModal 弹窗</h1>
     <p>
-      在 a-modal 基础上提供 beforeOk 异步拦截：校验或保存失败时弹窗不关闭，期间确定按钮自动
+      在 {{ docTerm('a-modal', 'el-dialog') }} 基础上提供 beforeOk 异步拦截：校验或保存失败时弹窗不关闭，期间确定按钮自动
       loading。不需要再手写 confirmLoading 和 open 状态机。
     </p>
 

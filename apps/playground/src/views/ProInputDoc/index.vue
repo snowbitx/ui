@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { showImport } from '@/utils/showImport'
+import { showImport, docTerm } from '@/utils/showImport'
 import { ProInput } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
 import DemoTable from '@/components/DemoTable/index.vue'
@@ -35,8 +35,8 @@ const propsColumns: ApiColumn[] = [
   <div>
     <h1>ProInput 输入框</h1>
     <p>
-      在 a-input 基础上内置输入防抖：停止输入一段时间后才同步
-      v-model，适合搜索联想、自动保存等场景。其余用法与 a-input 一致。
+      在 {{ docTerm('a-input', 'el-input') }} 基础上内置输入防抖：停止输入一段时间后才同步
+      v-model，适合搜索联想、自动保存等场景。其余用法与 {{ docTerm('a-input', 'el-input') }} 一致。
     </p>
 
     <DemoBlock title="输入防抖" :code="showImport(debounceSource)" :js-code="showImport(debounceSourceJs)">

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { showImport } from '@/utils/showImport'
+import { showImport, docTerm } from '@/utils/showImport'
 import { ProDescriptions } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
 import DemoTable from '@/components/DemoTable/index.vue'
@@ -29,7 +29,7 @@ const propsColumns: ApiColumn[] = [
   { name: 'emptyText', description: '空值占位符', type: 'string', default: "'-'" },
   {
     name: '（其余）',
-    description: 'bordered / column / size 等，透传给 a-descriptions',
+    description: `bordered / column / size 等，透传给 ${docTerm('a-descriptions', 'el-descriptions')}`,
     type: 'DescriptionsProps',
     default: '-',
   },
