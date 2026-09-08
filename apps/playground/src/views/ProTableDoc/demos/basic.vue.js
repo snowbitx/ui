@@ -1,5 +1,5 @@
 <script setup>
-import { createApis } from '@snowbitx/ui';
+import { createApis } from '@/ui';
 defineOptions({
     name: 'ProTableBasicDemo',
 });

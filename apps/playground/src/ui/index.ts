@@ -1,0 +1,50 @@
+/**
+ * UI 适配入口：所有 demo / 文档统一从这里导入，不直接 import 具体实现包。
+ *
+ * 运行时按 cookie（snowui-ui=antd|element）选择实现，异步加载后逐个
+ * 填充同名导出（ProTable / openDialog / createApis ...）：
+ *   - 默认 antd 版（@snowbitx/ui-antd）
+ *   - 右上角开关 / ?ui=element 写 cookie 并整页重载，走 @snowbitx/ui-element
+ *
+ * demo 里 `import { ProTable } from '@/ui'` 是静态导入，组件在实现包
+ * 加载完成前是 undefined，加载完成后变为真实组件——由于所有 demo 都在
+ * <Suspense>/异步路由组件之后渲染，实际取值发生在填充完成之后。
+ */
+export type UiMode = 'antd' | 'element'
+
+export function currentUiMode(): UiMode {
+  if (typeof document === 'undefined') return 'antd'
+  return /(?:^|;\s*)snowui-ui=element(?:;|$)/.test(document.cookie) ? 'element' : 'antd'
+}
+
+export function switchUiMode(mode: UiMode) {
+  document.cookie = `snowui-ui=${mode}; path=/; max-age=31536000`
+  window.location.reload()
+}
+
+const impl: Record<string, any> =
+  currentUiMode() === 'element' ? await import('@snowbitx/ui-element') : await import('@snowbitx/ui-antd')
+
+// 把实现包的全部导出平铺为本模块导出（含类型侧的运行时值）
+const { default: _implDefault, ...named } = impl as Record<string, any>
+export const {
+  ProTable,
+  ProTableForm,
+  ProFormBuilder,
+  ProButton,
+  ProCountdownButton,
+  ProInput,
+  ProSelect,
+  ProCheckboxGroup,
+  ProRadioGroup,
+  ProModal,
+  ProConfirmButton,
+  ProDescriptions,
+  openDialog,
+  renderDialogForm,
+  createApis,
+  useOptions,
+  useDebounce,
+  useThrottle,
+  useAsyncLoading,
+} = named

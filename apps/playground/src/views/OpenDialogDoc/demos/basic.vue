@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { openDialog, createApis } from '@snowbitx/ui'
+import { openDialog, createApis } from '@/ui'
 import UserForm from './UserForm.vue'
 
 defineOptions({

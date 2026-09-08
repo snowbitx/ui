@@ -1,7 +1,7 @@
 <script setup>
 import { h } from 'vue';
 import { message } from 'ant-design-vue';
-import { openDialog } from '@snowbitx/ui';
+import { openDialog } from '@/ui';
 defineOptions({
     name: 'OpenDialogCustomContentDemo',
 });

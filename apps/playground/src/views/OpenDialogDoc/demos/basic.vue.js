@@ -1,5 +1,5 @@
 <script setup>
-import { openDialog, createApis } from '@snowbitx/ui';
+import { openDialog, createApis } from '@/ui';
 import UserForm from './UserForm.vue';
 defineOptions({
     name: 'OpenDialogBasicDemo',

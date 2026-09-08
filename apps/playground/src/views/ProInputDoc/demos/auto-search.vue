@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ProInput, ProButton } from '@snowbitx/ui'
+import { ProInput, ProButton } from '@/ui'
 
 defineOptions({
   name: 'ProInputSearchDemo',

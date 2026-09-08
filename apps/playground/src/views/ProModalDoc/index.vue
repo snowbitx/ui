@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ProModal } from '@snowbitx/ui'
+import { ProModal } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
 import type { ApiColumn } from '@/components/ApiTable'
 import BasicDemo from './demos/basic.vue'

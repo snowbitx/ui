@@ -1,0 +1,23 @@
+{
+  "name": "@snowbitx/ui-core",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "SnowUI 无 UI 依赖的核心层：createApis / hooks / 类型契约",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "type-check": "vue-tsc --noEmit -p tsconfig.json"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.17"
+  },
+  "devDependencies": {
+    "@vue/tsconfig": "^0.7.0",
+    "vue": "^3.5.17",
+    "vue-tsc": "^2.2.10"
+  }
+}

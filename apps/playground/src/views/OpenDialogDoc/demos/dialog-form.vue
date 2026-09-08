@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { message } from 'ant-design-vue'
-import { ProButton, renderDialogForm } from '@snowbitx/ui'
+import { ProButton, renderDialogForm } from '@/ui'
 
 defineOptions({
   name: 'RenderDialogFormDemo',

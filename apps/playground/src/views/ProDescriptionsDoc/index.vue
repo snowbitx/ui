@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ProDescriptions } from '@snowbitx/ui'
+import { ProDescriptions } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
 import type { ApiColumn } from '@/components/ApiTable'
 import BasicDemo from './demos/basic.vue'

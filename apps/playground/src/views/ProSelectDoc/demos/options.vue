@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ProSelect } from '@snowbitx/ui'
+import { ProSelect } from '@/ui'
 
 defineOptions({
   name: 'ProSelectOptionsDemo',

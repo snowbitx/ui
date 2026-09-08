@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import { ProInput } from '@snowbitx/ui'
+import { ProInput } from '@/ui'
 
 defineOptions({
   name: 'ProInputDebounceDemo',

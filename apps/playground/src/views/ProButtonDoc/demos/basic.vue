@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { message } from 'ant-design-vue'
-import { ProButton } from '@snowbitx/ui'
+import { ProButton } from '@/ui'
 
 defineOptions({
   name: 'ProButtonBasicDemo',

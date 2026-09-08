@@ -11,7 +11,8 @@
     "format": "prettier --write \"**/src/**/*.{ts,vue,js,json}\"",
     "gen:pages": "pnpm --filter @snowbitx/page-generator gen",
     "mock": "node scripts/mock-server/server.mjs",
-    "mock:start": "pnpm mock & pnpm gen:pages"
+    "mock:start": "pnpm mock & pnpm gen:pages",
+    "dev:playground:element": "pnpm --filter @snowbitx/playground dev:element"
   },
   "devDependencies": {
     "@types/node": "^22.15.32",

@@ -1,4 +1,4 @@
-import { createApis } from '@snowbitx/ui'
+import { createApis } from '@/ui'
 
 let dataSource = [
   {

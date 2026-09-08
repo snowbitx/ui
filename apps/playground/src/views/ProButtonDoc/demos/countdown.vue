@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { message } from 'ant-design-vue'
-import { ProCountdownButton } from '@snowbitx/ui'
+import { ProCountdownButton } from '@/ui'
 
 defineOptions({
   name: 'ProButtonCountdownDemo',

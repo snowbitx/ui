@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ProRadioGroup } from '@snowbitx/ui'
+import { ProRadioGroup } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
 import OptionsDemo from '@/views/ProCheckboxGroupDoc/demos/options.vue'
 import optionsSource from '@/views/ProCheckboxGroupDoc/demos/options.vue?raw'

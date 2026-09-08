@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ProTable, createApis } from '@snowbitx/ui'
+import { ProTable, createApis } from '@/ui'
 
 defineOptions({
   name: 'ProTableCustomSearchDemo',

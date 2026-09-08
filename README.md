@@ -1,6 +1,7 @@
 # snowbitx-ui
 
-基于 Vue 3 + ant-design-vue 的表格组件库与「JSON 渲染页面」演示项目。
+基于 Vue 3 的表格组件库与「JSON 渲染页面」演示项目。同一套组件 API 提供两个 UI 实现：
+`@snowbitx/ui-antd`（ant-design-vue）与 `@snowbitx/ui-element`（element-plus），按需选用。
 
 ## Monorepo 结构
 
@@ -9,20 +10,17 @@
 ```
 apps/demo                    # 演示应用（消费组件库 + 展示生成出来的页面）
 apps/playground              # 组件演示站：仿 antdv 官网，固定演示二次封装组件的用法
-packages/ui                  # 组件库：ant-design-vue 的二次封装
-  └─ src/components          #   组件（下述 ProXxx 均在此目录）
-    └─ ProTable              #     表格增删改查一体组件
-    └─ ProFormBuilder        #     JSON 配置式表单
-    └─ ProButton             #     按钮：内置防抖 + async 点击自动 loading（含 ProCountdownButton 倒计时）
-    └─ ProInput              #     输入框：输入防抖（停止输入后才同步 v-model）
-    └─ ProSelect             #     下拉选择：options 配置驱动 + 远程字典 + deps 级联
-    └─ ProCheckboxGroup      #     多选组：options 配置驱动（同 ProSelect）
-    └─ ProRadioGroup         #     单选组：options 配置驱动（同 ProSelect）
-    └─ ProModal              #     弹窗：beforeOk 异步拦截 + 确定按钮自动 loading
-    └─ ProConfirmButton      #     气泡确认按钮：确认请求期间自动 loading
-    └─ ProDescriptions       #     详情描述：配置驱动 + 字典翻译 + 空值占位
-  └─ src/composables         #   组合式函数（useOptions 选项数据源、useDebounce/useThrottle/useAsyncLoading）
-  └─ src/utils               #   工具函数（openDialog 命令式弹窗、createApis 基于 fetch 的 CRUD 接口实现）
+packages/ui-core            # 无 UI 依赖核心层：createApis / hooks / 组件 API 类型契约
+packages/ui-antd            # 组件库 antd 实现：ant-design-vue 的二次封装（下述 ProXxx 均在此目录）
+  └─ src/components          #   ProTable 表格增删改查一体组件
+                            #   ProFormBuilder JSON 配置式表单
+                            #   ProButton 防抖 + async 自动 loading（含 ProCountdownButton 倒计时）
+                            #   ProInput 输入防抖、ProSelect/ProCheckboxGroup/ProRadioGroup options 驱动
+                            #   ProModal beforeOk 拦截、ProConfirmButton 气泡确认、ProDescriptions 详情
+  └─ src/utils               #   openDialog 命令式弹窗、renderDialogForm 表单弹窗
+packages/ui-element         # 组件库 element-plus 实现：API 与 ui-antd 完全对齐
+packages/page-generator      # 页面生成器：拉 JSON → 拼 vue 字符串 → 写文件
+scripts/mock-server          # 模拟「后端登记页面 JSON 的公开文档接口」+ CRUD 数据
 packages/page-generator      # 页面生成器：拉 JSON → 拼 vue 字符串 → 写文件
 scripts/mock-server          # 模拟「后端登记页面 JSON 的公开文档接口」+ CRUD 数据
 ```
@@ -30,7 +28,7 @@ scripts/mock-server          # 模拟「后端登记页面 JSON 的公开文档�
 三个前端入口的分工：
 
 - **demo**（`pnpm dev`）：页面全部由脚本生成，演示「通过一份 JSON 渲染页面」。
-- **playground**（`pnpm dev:playground`）：手写的固定演示站，每个组件一个文档页（效果 / 代码切换 + API 表格），类似 ant-design-vue 官网。
+- **playground**（`pnpm dev:playground`）：手写的固定演示站，每个组件一个文档页（效果 / 代码切换 + API 表格），类似 ant-design-vue 官网。页面右上角可一键切换 antd 版 / Element 版实现。
 - **mock-server**（`pnpm mock`）：给上面两个提供数据的假后端。
 
 ## 核心流程：通过一份 JSON 渲染页面
@@ -126,7 +124,8 @@ const formItems = [{ label: "姓名", key: "name", type: "input" }];
 | 命令                  | 说明                                           |
 | --------------------- | ---------------------------------------------- |
 | `pnpm dev`            | 启动 demo 应用（apps/demo）                    |
-| `pnpm dev:playground` | 启动组件演示站（apps/playground）              |
+| `pnpm dev:playground` | 启动组件演示站（apps/playground，默认 antd 版） |
+| `pnpm dev:playground:element` | 以 element-plus 模式启动演示站         |
 | `pnpm mock`           | 启动模拟后端（scripts/mock-server，端口 4173） |
 | `pnpm gen:pages`      | 拉取页面登记 JSON，生成 vue 页面文件           |
 | `pnpm build`          | 全 workspace 构建                              |

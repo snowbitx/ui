@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { message } from 'ant-design-vue'
-import { ProConfirmButton } from '@snowbitx/ui'
+import { ProConfirmButton } from '@/ui'
 
 defineOptions({
   name: 'ProConfirmButtonDemo',

@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { message } from 'ant-design-vue';
-import { renderDialogForm } from '@snowbitx/ui';
+import { renderDialogForm } from '@/ui';
 defineOptions({
     name: 'RenderDialogFormDemo',
 });

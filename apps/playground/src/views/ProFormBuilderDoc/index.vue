@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ProFormBuilder } from '@snowbitx/ui'
+import { ProFormBuilder } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
 import type { ApiColumn } from '@/components/ApiTable'
 import BasicDemo from './demos/basic.vue'

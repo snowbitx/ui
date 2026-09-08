@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ProSelect } from '@snowbitx/ui'
+import { ProSelect } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
 import type { ApiColumn } from '@/components/ApiTable'
 import OptionsDemo from './demos/options.vue'

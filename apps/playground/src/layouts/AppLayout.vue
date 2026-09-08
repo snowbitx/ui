@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router'
 import { menus } from '@/router'
+import { uiMode, type UiMode } from '@/ui-setup'
+import { switchUiMode } from '@/ui'
 
 defineOptions({
   name: 'AppLayout',
@@ -8,9 +10,18 @@ defineOptions({
 
 const route = useRoute()
 const router = useRouter()
+
+// 切换 UI 适配层：写 cookie 后整页重载，src/ui 代理层按新 cookie 加载对应实现
+function switchUi(mode: UiMode) {
+  switchUiMode(mode)
+}
 </script>
 
 <template>
+  <div class="pg-ui-switch">
+    <button :class="{ active: uiMode === 'antd' }" @click="switchUi('antd')">antd 版</button>
+    <button :class="{ active: uiMode === 'element' }" @click="switchUi('element')">Element 版</button>
+  </div>
   <a-layout class="pg-layout">
     <a-layout-sider theme="light" width="220">
       <div class="pg-logo">
@@ -30,6 +41,30 @@ const router = useRouter()
 </template>
 
 <style scoped>
+.pg-ui-switch {
+  position: fixed;
+  top: 12px;
+  right: 16px;
+  z-index: 1000;
+  display: flex;
+  gap: 0;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+}
+.pg-ui-switch button {
+  border: none;
+  background: transparent;
+  padding: 4px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  color: #666;
+}
+.pg-ui-switch button.active {
+  background: #1677ff;
+  color: #fff;
+}
 .pg-layout {
   min-height: 100vh;
 }
@@ -39,6 +74,8 @@ const router = useRouter()
   align-items: baseline;
   justify-content: center;
   gap: 8px;
+  padding-top: 16px;
+  box-sizing: border-box;
   border-bottom: 1px solid #f0f0f0;
 }
 .pg-logo strong {

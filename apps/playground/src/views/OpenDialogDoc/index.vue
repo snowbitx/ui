@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { h } from 'vue'
-import { openDialog } from '@snowbitx/ui'
+import { openDialog } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
 import type { ApiColumn } from '@/components/ApiTable'
 import BasicDemo from './demos/basic.vue'

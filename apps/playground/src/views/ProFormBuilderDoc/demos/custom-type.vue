@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ProFormBuilder } from '@snowbitx/ui'
+import { ProFormBuilder } from '@/ui'
 
 defineOptions({
   name: 'ProFormBuilderCustomTypeDemo',

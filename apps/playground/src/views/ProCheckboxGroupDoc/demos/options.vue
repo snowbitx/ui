@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ProCheckboxGroup, ProRadioGroup } from '@snowbitx/ui'
+import { ProCheckboxGroup, ProRadioGroup } from '@/ui'
 
 defineOptions({
   name: 'GroupOptionsDemo',

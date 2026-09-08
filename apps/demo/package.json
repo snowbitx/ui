@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@snowbitx/page-generator": "workspace:*",
-    "@snowbitx/ui": "workspace:*",
+    "@snowbitx/ui-antd": "workspace:*",
     "@types/lodash-es": "^4.17.12",
     "ant-design-vue": "^4.2.6",
     "lodash-es": "^4.17.21",

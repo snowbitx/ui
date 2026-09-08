@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ProInput } from '@snowbitx/ui'
+import { ProInput } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
 import type { ApiColumn } from '@/components/ApiTable'
 import DebounceDemo from './demos/debounce.vue'

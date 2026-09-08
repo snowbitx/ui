@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ProModal, ProInput } from '@snowbitx/ui'
+import { ProModal, ProInput } from '@/ui'
 
 defineOptions({
   name: 'ProModalBasicDemo',
