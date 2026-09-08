@@ -24,8 +24,6 @@ const items = [
 <template>
   <div>
     <ProDescriptions :items="items" :data="data" bordered column="2" />
-    <a-button style="margin-top: 16px" @click="data = { name: '李四' }"
-      >换一条空数据（看空值占位）</a-button
-    >
+    <ProButton style="margin-top: 16px" @click="data = { name: '李四' }">换一条空数据（看空值占位）</ProButton>
   </div>
 </template>

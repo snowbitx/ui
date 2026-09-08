@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { showImport } from '@/utils/showImport'
 import { h } from 'vue'
 import { openDialog } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
+import DemoTable from '@/components/DemoTable/index.vue'
 import type { ApiColumn } from '@/components/ApiTable'
 import BasicDemo from './demos/basic.vue'
 import CustomContentDemo from './demos/custom-content.vue'
@@ -58,42 +60,32 @@ const behaviorColumns: ApiColumn[] = [
       的新增/修改弹窗内部就是用它实现的。
     </p>
 
-    <DemoBlock title="基础用法：弹出表单组件" :code="demoSource" :js-code="demoSourceJs">
+    <DemoBlock title="基础用法：弹出表单组件" :code="showImport(demoSource)" :js-code="showImport(demoSourceJs)">
       <BasicDemo />
     </DemoBlock>
 
-    <DemoBlock title="自定义内容：任意组件 + 确定回调" :code="customContentSource" :js-code="customContentSourceJs">
+    <DemoBlock title="自定义内容：任意组件 + 确定回调" :code="showImport(customContentSource)" :js-code="showImport(customContentSourceJs)">
       <CustomContentDemo />
     </DemoBlock>
 
-    <DemoBlock title="renderDialogForm：一行代码弹出表单弹窗（确定自动校验）" :code="dialogFormSource">
+    <DemoBlock title="renderDialogForm：一行代码弹出表单弹窗（确定自动校验）" :code="showImport(dialogFormSource)">
       <DialogFormDemo />
     </DemoBlock>
 
     <h2>API</h2>
     <h3>参数</h3>
-    <a-table
-      :data-source="propsColumns"
-      :columns="[
+    <DemoTable :data-source="propsColumns" :columns="[
         { title: '参数', dataIndex: 'name' },
         { title: '说明', dataIndex: 'description' },
         { title: '类型', dataIndex: 'type' },
         { title: '默认值', dataIndex: 'default' },
-      ]"
-      :pagination="false"
-      size="small"
-    />
+      ]" />
 
     <h3>行为约定</h3>
-    <a-table
-      :data-source="behaviorColumns"
-      :columns="[
+    <DemoTable :data-source="behaviorColumns" :columns="[
         { title: '项', dataIndex: 'name' },
         { title: '说明', dataIndex: 'description' },
-      ]"
-      :pagination="false"
-      size="small"
-    />
+      ]" />
 
     <h2>函数签名</h2>
     <pre class="signature">

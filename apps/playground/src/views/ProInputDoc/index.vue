@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { showImport } from '@/utils/showImport'
 import { ProInput } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
+import DemoTable from '@/components/DemoTable/index.vue'
 import type { ApiColumn } from '@/components/ApiTable'
 import DebounceDemo from './demos/debounce.vue'
 import AutoSearchDemo from './demos/auto-search.vue'
@@ -37,26 +39,21 @@ const propsColumns: ApiColumn[] = [
       v-model，适合搜索联想、自动保存等场景。其余用法与 a-input 一致。
     </p>
 
-    <DemoBlock title="输入防抖" :code="debounceSource" :js-code="debounceSourceJs">
+    <DemoBlock title="输入防抖" :code="showImport(debounceSource)" :js-code="showImport(debounceSourceJs)">
       <DebounceDemo />
     </DemoBlock>
 
-    <DemoBlock title="防抖 + 回车搜索" :code="autoSearchSource" :js-code="autoSearchSourceJs">
+    <DemoBlock title="防抖 + 回车搜索" :code="showImport(autoSearchSource)" :js-code="showImport(autoSearchSourceJs)">
       <AutoSearchDemo />
     </DemoBlock>
 
     <h2>API</h2>
     <h3>Props</h3>
-    <a-table
-      :data-source="propsColumns"
-      :columns="[
+    <DemoTable :data-source="propsColumns" :columns="[
         { title: '参数', dataIndex: 'name' },
         { title: '说明', dataIndex: 'description' },
         { title: '类型', dataIndex: 'type' },
         { title: '默认值', dataIndex: 'default' },
-      ]"
-      :pagination="false"
-      size="small"
-    />
+      ]" />
   </div>
 </template>

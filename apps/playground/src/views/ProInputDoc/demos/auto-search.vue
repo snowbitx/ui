@@ -17,7 +17,7 @@ function doSearch() {
 
 <template>
   <div>
-    <a-space direction="vertical" style="width: 320px">
+    <DemoSpace class="vertical" style="width: 320px">
       <ProInput
         v-model:value="keyword"
         style="width: 100%"
@@ -27,7 +27,7 @@ function doSearch() {
         @press-enter="doSearch"
       />
       <ProButton type="primary" @click="doSearch">立即搜索</ProButton>
-    </a-space>
+    </DemoSpace>
     <p>{{ result }}</p>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { openDialog, createApis } from '@/ui'
+import { openDialog, createApis, ProButton } from '@/ui'
 import UserForm from './UserForm.vue'
 
 defineOptions({
@@ -29,5 +29,5 @@ defineExpose({ openCreate })
 </script>
 
 <template>
-  <a-button type="primary" @click="openCreate">新增商品（命令式弹窗）</a-button>
+  <ProButton type="primary" @click="openCreate">新增商品（命令式弹窗）</ProButton>
 </template>

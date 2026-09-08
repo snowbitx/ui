@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { showImport } from '@/utils/showImport'
 import { ProButton, ProCountdownButton } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
+import DemoTable from '@/components/DemoTable/index.vue'
 import type { ApiColumn } from '@/components/ApiTable'
 import BasicDemo from './demos/basic.vue'
 import CountdownDemo from './demos/countdown.vue'
@@ -60,29 +62,19 @@ const countdownProps: ApiColumn[] = [
       完全一致。
     </p>
 
-    <DemoBlock title="防抖 + 自动 loading" :code="demoSource" :js-code="demoSourceJs">
+    <DemoBlock title="防抖 + 自动 loading" :code="showImport(demoSource)" :js-code="showImport(demoSourceJs)">
       <BasicDemo />
     </DemoBlock>
 
-    <DemoBlock title="ProCountdownButton 倒计时按钮（验证码场景）" :code="countdownSource" :js-code="countdownSourceJs">
+    <DemoBlock title="ProCountdownButton 倒计时按钮（验证码场景）" :code="showImport(countdownSource)" :js-code="showImport(countdownSourceJs)">
       <CountdownDemo />
     </DemoBlock>
 
     <h2>API</h2>
     <h3>ProButton Props</h3>
-    <a-table
-      :data-source="proButtonProps"
-      :columns="propsTableColumns"
-      :pagination="false"
-      size="small"
-    />
+    <DemoTable :data-source="proButtonProps" :columns="propsTableColumns" />
 
     <h3>ProCountdownButton Props</h3>
-    <a-table
-      :data-source="countdownProps"
-      :columns="propsTableColumns"
-      :pagination="false"
-      size="small"
-    />
+    <DemoTable :data-source="countdownProps" :columns="propsTableColumns" />
   </div>
 </template>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ProModal, ProInput } from '@/ui'
+import { ProModal, ProInput, ProButton } from '@/ui'
 
 defineOptions({
   name: 'ProModalBasicDemo',
@@ -25,7 +25,7 @@ function beforeOk() {
 
 <template>
   <div>
-    <a-button type="primary" @click="open = true">打开弹窗</a-button>
+    <ProButton type="primary" @click="open = true">打开弹窗</ProButton>
     <ProModal v-model:open="open" title="编辑名称" :before-ok="beforeOk">
       <ProInput v-model:value="name" placeholder="名称（留空点确定试试拦截）" />
     </ProModal>

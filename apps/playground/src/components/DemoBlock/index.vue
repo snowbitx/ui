@@ -18,27 +18,34 @@ const props = defineProps<{
 const activeKey = ref<'demo' | 'ts' | 'js'>('demo')
 
 const tabs = [
+  { key: 'demo' as const, label: '效果' },
   { key: 'ts' as const, label: 'TS' },
   { key: 'js' as const, label: 'JS' },
 ]
 </script>
 
 <template>
+  <!-- 纯 HTML tab：DemoBlock 是文档站基础设施，不依赖任何 UI 库 -->
   <section class="demo-block">
     <header class="demo-block-header">
       <h3>{{ props.title }}</h3>
-      <a-radio-group v-model:value="activeKey" size="small">
-        <a-radio-button value="demo" title="效果">
-          <span class="demo-block-icon" aria-label="效果">
+      <div class="demo-block-tabs">
+        <button
+          v-for="t in (props.jsCode ? tabs : tabs.filter((x) => x.key !== 'js'))"
+          :key="t.key"
+          class="demo-block-tab"
+          :class="{ active: activeKey === t.key }"
+          :title="t.label"
+          @click="activeKey = t.key"
+        >
+          <span v-if="t.key === 'demo'" class="demo-block-icon" aria-label="效果">
             <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
               <path d="M12 4.5C7 4.5 2.7 7.6 1 12c1.7 4.4 6 7.5 11 7.5s9.3-3.1 11-7.5c-1.7-4.4-6-7.5-11-7.5zM12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
             </svg>
           </span>
-        </a-radio-button>
-        <a-radio-button v-for="t in tabs" :key="t.key" :value="t.key" :title="t.label">
-          {{ t.label }}
-        </a-radio-button>
-      </a-radio-group>
+          <template v-else>{{ t.label }}</template>
+        </button>
+      </div>
     </header>
 
     <div class="demo-block-body">
@@ -69,6 +76,29 @@ const tabs = [
 .demo-block-header h3 {
   margin: 0;
   font-size: 15px;
+}
+.demo-block-tabs {
+  display: flex;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.demo-block-tab {
+  border: none;
+  background: transparent;
+  padding: 3px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  color: #666;
+  display: inline-flex;
+  align-items: center;
+}
+.demo-block-tab + .demo-block-tab {
+  border-left: 1px solid #d9d9d9;
+}
+.demo-block-tab.active {
+  background: #1677ff;
+  color: #fff;
 }
 .demo-block-icon {
   display: inline-flex;

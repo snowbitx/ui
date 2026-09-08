@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { showImport } from '@/utils/showImport'
 import { ProCheckboxGroup, ProRadioGroup } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
 import OptionsDemo from './demos/options.vue'
@@ -18,7 +19,7 @@ defineOptions({
       a-checkbox-group / a-radio-group 一致。
     </p>
 
-    <DemoBlock title="options 数据源" :code="optionsSource" :js-code="optionsSourceJs">
+    <DemoBlock title="options 数据源" :code="showImport(optionsSource)" :js-code="showImport(optionsSourceJs)">
       <OptionsDemo />
     </DemoBlock>
   </div>

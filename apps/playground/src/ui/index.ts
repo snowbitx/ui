@@ -43,6 +43,7 @@ export const {
   openDialog,
   renderDialogForm,
   createApis,
+  uiMessage,
   useOptions,
   useDebounce,
   useThrottle,

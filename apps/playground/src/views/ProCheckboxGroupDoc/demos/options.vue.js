@@ -15,7 +15,7 @@ function fetchRoles() {
 </script>
 
 <template>
-  <a-space direction="vertical" style="width: 100%">
+  <DemoSpace class="vertical" style="width: 100%">
     <div>
       <p>多选（静态 options）：</p>
       <ProCheckboxGroup
@@ -34,6 +34,6 @@ function fetchRoles() {
       <p>单选（远程字典 + button 样式）：</p>
       <ProRadioGroup v-model:value="radio" :options="fetchRoles" option-type="button" />
     </div>
-  </a-space>
+  </DemoSpace>
   <p>checkbox：{{ JSON.stringify(checked) }}，radio：{{ radio }}</p>
 </template>

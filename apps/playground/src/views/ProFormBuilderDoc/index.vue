@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { showImport } from '@/utils/showImport'
 import { ref } from 'vue'
 import { ProFormBuilder } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
+import DemoTable from '@/components/DemoTable/index.vue'
 import type { ApiColumn } from '@/components/ApiTable'
 import BasicDemo from './demos/basic.vue'
 import CustomTypeDemo from './demos/custom-type.vue'
@@ -122,15 +124,15 @@ function onBind(data: Record<string, any>) {
       v-model 差异（<code>value</code> / <code>checked</code> / <code>open</code>）。
     </p>
 
-    <DemoBlock title="基础用法（v-model 双向绑定）" :code="demoSource" :js-code="demoSourceJs">
+    <DemoBlock title="基础用法（v-model 双向绑定）" :code="showImport(demoSource)" :js-code="showImport(demoSourceJs)">
       <BasicDemo @bind="onBind" @validate="onValidate" />
     </DemoBlock>
 
-    <DemoBlock title="使用内置类型 input / select / checkbox" :code="customTypeSource" :js-code="customTypeSourceJs">
+    <DemoBlock title="使用内置类型 input / select / checkbox" :code="showImport(customTypeSource)" :js-code="showImport(customTypeSourceJs)">
       <CustomTypeDemo />
     </DemoBlock>
 
-    <DemoBlock title="栅格布局 + hidden 联动显隐（选城市后出现备注）" :code="layoutSource">
+    <DemoBlock title="栅格布局 + hidden 联动显隐（选城市后出现备注）" :code="showImport(layoutSource)">
       <LayoutDemo />
     </DemoBlock>
 
@@ -138,36 +140,21 @@ function onBind(data: Record<string, any>) {
 
     <h2>API</h2>
     <h3>Props</h3>
-    <a-table
-      :data-source="propsColumns"
-      :columns="propsTableColumns"
-      :pagination="false"
-      size="small"
-    />
+    <DemoTable :data-source="propsColumns" :columns="propsTableColumns" />
 
     <h3>formItems 每一项</h3>
-    <a-table
-      :data-source="itemPropsColumns"
-      :columns="[
+    <DemoTable :data-source="itemPropsColumns" :columns="[
         { title: '字段', dataIndex: 'name' },
         { title: '说明', dataIndex: 'description' },
         { title: '类型', dataIndex: 'type' },
         { title: '默认值', dataIndex: 'default' },
-      ]"
-      :pagination="false"
-      size="small"
-    />
+      ]" />
 
     <h3>Expose</h3>
-    <a-table
-      :data-source="exposeColumns"
-      :columns="[
+    <DemoTable :data-source="exposeColumns" :columns="[
         { title: '方法', dataIndex: 'name' },
         { title: '说明', dataIndex: 'description' },
         { title: '类型', dataIndex: 'type' },
-      ]"
-      :pagination="false"
-      size="small"
-    />
+      ]" />
   </div>
 </template>

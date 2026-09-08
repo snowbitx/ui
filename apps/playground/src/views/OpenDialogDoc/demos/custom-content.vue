@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { h } from 'vue'
-import { message } from 'ant-design-vue'
-import { openDialog } from '@/ui'
+import { openDialog, uiMessage, ProButton } from '@/ui'
 
 defineOptions({
   name: 'OpenDialogCustomContentDemo',
@@ -17,12 +16,12 @@ function openConfirm() {
     {},
     {
       title: '确认操作',
-      onOk: () => message.success('已确认'),
+      onOk: () => uiMessage.success('已确认'),
     },
   )
 }
 </script>
 
 <template>
-  <a-button @click="openConfirm">弹出纯内容弹窗</a-button>
+  <ProButton @click="openConfirm">弹出纯内容弹窗</ProButton>
 </template>

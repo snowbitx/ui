@@ -23,7 +23,7 @@ function fetchTypes() {
 </script>
 
 <template>
-  <a-space direction="vertical" :size="16">
+  <DemoSpace class="vertical" style="gap: 16px">
     <div style="width: 320px">
       <p>静态 options：</p>
       <ProSelect
@@ -49,5 +49,5 @@ function fetchTypes() {
       <p>远程字典（自动 loading）：</p>
       <ProSelect v-model:value="value" style="width: 100%" :options="fetchTypes" placeholder="远程字典" />
     </div>
-  </a-space>
+  </DemoSpace>
 </template>

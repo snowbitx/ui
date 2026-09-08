@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { showImport } from '@/utils/showImport'
 import { ProSelect } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
+import DemoTable from '@/components/DemoTable/index.vue'
 import type { ApiColumn } from '@/components/ApiTable'
 import OptionsDemo from './demos/options.vue'
 import CascadeDemo from './demos/cascade.vue'
@@ -45,27 +47,22 @@ const propsColumns: ApiColumn[] = [
       可以做级联联动。其余用法与 a-select 一致。
     </p>
 
-    <DemoBlock title="三种数据源" :code="optionsSource" :js-code="optionsSourceJs">
+    <DemoBlock title="三种数据源" :code="showImport(optionsSource)" :js-code="showImport(optionsSourceJs)">
       <OptionsDemo />
     </DemoBlock>
 
-    <DemoBlock title="级联：deps 变化自动重拉字典" :code="cascadeSource" :js-code="cascadeSourceJs">
+    <DemoBlock title="级联：deps 变化自动重拉字典" :code="showImport(cascadeSource)" :js-code="showImport(cascadeSourceJs)">
       <CascadeDemo />
     </DemoBlock>
 
     <h2>API</h2>
     <h3>Props</h3>
-    <a-table
-      :data-source="propsColumns"
-      :columns="[
+    <DemoTable :data-source="propsColumns" :columns="[
         { title: '参数', dataIndex: 'name' },
         { title: '说明', dataIndex: 'description' },
         { title: '类型', dataIndex: 'type' },
         { title: '默认值', dataIndex: 'default' },
-      ]"
-      :pagination="false"
-      size="small"
-    />
+      ]" />
     <p>ProCheckboxGroup / ProRadioGroup 与 ProSelect 的 options 配置完全一致。</p>
   </div>
 </template>

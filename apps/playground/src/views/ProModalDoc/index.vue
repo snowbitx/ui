@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { showImport } from '@/utils/showImport'
 import { ProModal } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
+import DemoTable from '@/components/DemoTable/index.vue'
 import type { ApiColumn } from '@/components/ApiTable'
 import BasicDemo from './demos/basic.vue'
 import basicSource from './demos/basic.vue?raw'
@@ -44,34 +46,24 @@ const eventsColumns: ApiColumn[] = [
       loading。不需要再手写 confirmLoading 和 open 状态机。
     </p>
 
-    <DemoBlock title="beforeOk 拦截 + 自动 loading" :code="basicSource" :js-code="basicSourceJs">
+    <DemoBlock title="beforeOk 拦截 + 自动 loading" :code="showImport(basicSource)" :js-code="showImport(basicSourceJs)">
       <BasicDemo />
     </DemoBlock>
 
     <h2>API</h2>
     <h3>Props</h3>
-    <a-table
-      :data-source="propsColumns"
-      :columns="[
+    <DemoTable :data-source="propsColumns" :columns="[
         { title: '参数', dataIndex: 'name' },
         { title: '说明', dataIndex: 'description' },
         { title: '类型', dataIndex: 'type' },
         { title: '默认值', dataIndex: 'default' },
-      ]"
-      :pagination="false"
-      size="small"
-    />
+      ]" />
 
     <h3>Events</h3>
-    <a-table
-      :data-source="eventsColumns"
-      :columns="[
+    <DemoTable :data-source="eventsColumns" :columns="[
         { title: '事件', dataIndex: 'name' },
         { title: '说明', dataIndex: 'description' },
         { title: '类型', dataIndex: 'type' },
-      ]"
-      :pagination="false"
-      size="small"
-    />
+      ]" />
   </div>
 </template>

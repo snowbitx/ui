@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { ProButton } from '@/ui'
+import DemoSpace from '@/components/DemoSpace/index.vue'
 
 defineOptions({
   name: 'ProFormBuilderBasicDemo',
@@ -28,9 +30,9 @@ emit('bind', formData)
 <template>
   <div>
     <ProFormBuilder v-model="formData" :form-items="formItems" :rules="rules" />
-    <a-space>
-      <a-button type="primary" @click="emit('validate', $event)">校验（在上方点）</a-button>
-      <a-button @click="formData = { name: '', age: 0 }">重置数据</a-button>
-    </a-space>
+    <DemoSpace>
+      <ProButton type="primary" @click="emit('validate', $event)">校验（在上方点）</ProButton>
+      <ProButton @click="formData = { name: '', age: 0 }">重置数据</ProButton>
+    </DemoSpace>
   </div>
 </template>

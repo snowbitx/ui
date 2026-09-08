@@ -1,7 +1,6 @@
 <script setup>
 import { h } from 'vue';
-import { message } from 'ant-design-vue';
-import { openDialog } from '@/ui';
+import { openDialog, uiMessage } from '@/ui';
 defineOptions({
     name: 'OpenDialogCustomContentDemo',
 });
@@ -12,11 +11,11 @@ function openConfirm() {
         h('p', '点确定时会先执行内容组件的 submit()（如果暴露了）。'),
     ]), {}, {
         title: '确认操作',
-        onOk: () => message.success('已确认'),
+        onOk: () => uiMessage.success('已确认'),
     });
 }
 </script>
 
 <template>
-  <a-button @click="openConfirm">弹出纯内容弹窗</a-button>
+  <ProButton @click="openConfirm">弹出纯内容弹窗</ProButton>
 </template>

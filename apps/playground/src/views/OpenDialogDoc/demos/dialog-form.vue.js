@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { message } from 'ant-design-vue';
-import { renderDialogForm } from '@/ui';
+import { renderDialogForm, uiMessage } from '@/ui';
 defineOptions({
     name: 'RenderDialogFormDemo',
 });
@@ -19,7 +18,7 @@ function openCreate() {
         title: '新增用户',
         async onOk(data) {
             await new Promise((r) => setTimeout(r, 800)); // 模拟请求
-            message.success('已提交：' + JSON.stringify(data));
+            uiMessage.success('已提交：' + JSON.stringify(data));
             lastSubmit.value = JSON.stringify(data);
             close();
         },
@@ -31,7 +30,7 @@ function openEdit() {
         title: '编辑用户',
         onOk(data) {
             lastSubmit.value = JSON.stringify(data);
-            message.success('已保存');
+            uiMessage.success('已保存');
             close();
         },
     });
@@ -39,9 +38,9 @@ function openEdit() {
 </script>
 
 <template>
-  <a-space>
+  <DemoSpace>
     <ProButton type="primary" :on-click="openCreate">新增（命令式表单弹窗）</ProButton>
     <ProButton :on-click="openEdit">编辑（回填数据）</ProButton>
-  </a-space>
+  </DemoSpace>
   <p>最近提交：{{ lastSubmit }}</p>
 </template>

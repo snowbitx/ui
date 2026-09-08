@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { showImport } from '@/utils/showImport'
 import { ProTable, createApis } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
+import DemoTable from '@/components/DemoTable/index.vue'
 import type { ApiColumn } from '@/components/ApiTable'
 import BasicDemo from './demos/basic.vue'
 import CustomSearchDemo from './demos/custom-search.vue'
@@ -85,29 +87,27 @@ const slotsColumns: ApiColumn[] = [
       <code>apis</code> 注入，可用组件库自带的 <code>createApis</code> 快速创建。
     </p>
 
-    <a-alert
-      type="info"
-      show-icon
-      style="margin-bottom: 24px"
-      message="apis 和 createApis 是什么"
-      description="apis 是 ProTable 增删改查的数据来源，约定必须有 get / create / update / remove 四个 Promise 方法。createApis 是组件库为这个约定提供的开箱即用实现：传入接口基地址，自动基于 fetch 封装好四个请求。用 axios 或接口风格不一致时，可以传 { request } 自定义请求函数，或者自己实现这四个方法，不依赖 createApis。"
-    />
+    <DemoAlert type="info">
+      <strong>apis 和 createApis 是什么</strong><br />
+      apis 是 ProTable 增删改查的数据来源，约定必须有 get / create / update / remove 四个 Promise 方法。createApis
+      是组件库为这个约定提供的开箱即用实现：传入接口基地址，自动基于 fetch 封装好四个请求。用 axios
+      或接口风格不一致时，可以传 { request } 自定义请求函数，或者自己实现这四个方法，不依赖 createApis。
+    </DemoAlert>
 
-    <a-collapse style="margin-bottom: 24px">
-      <a-collapse-panel key="custom-apis" header="不用 createApis：自己手写 apis（点开看完整代码）">
-        <p style="margin-top: 0">
-          只要提供 <code>get / create / update / remove</code> 四个 Promise 方法，任何数据来源都能接入
-          ProTable——下面示例用内存数组 + 模拟延迟实现了一套，可直接复制改成你的真实接口：
-        </p>
-        <pre class="custom-apis-code"><code>{{ customApisSource.trim() }}</code></pre>
-      </a-collapse-panel>
-    </a-collapse>
+    <details class="custom-apis">
+      <summary>不用 createApis：自己手写 apis（点开看完整代码）</summary>
+      <p style="margin-top: 12px">
+        只要提供 <code>get / create / update / remove</code> 四个 Promise 方法，任何数据来源都能接入
+        ProTable——下面示例用内存数组 + 模拟延迟实现了一套，可直接复制改成你的真实接口：
+      </p>
+      <pre class="custom-apis-code"><code>{{ customApisSource.trim() }}</code></pre>
+    </details>
 
-    <DemoBlock title="基础用法" :code="demoSource" :js-code="demoSourceJs">
+    <DemoBlock title="基础用法" :code="showImport(demoSource)" :js-code="showImport(demoSourceJs)">
       <BasicDemo />
     </DemoBlock>
 
-    <DemoBlock title="自定义搜索（v-model:queryParams + #search 插槽）" :code="customSearchSource" :js-code="customSearchSourceJs">
+    <DemoBlock title="自定义搜索（v-model:queryParams + #search 插槽）" :code="showImport(customSearchSource)" :js-code="showImport(customSearchSourceJs)">
       <CustomSearchDemo />
     </DemoBlock>
 
@@ -117,36 +117,21 @@ const slotsColumns: ApiColumn[] = [
 
     <h2>API</h2>
     <h3>Props</h3>
-    <a-table
-      :data-source="propsColumns"
-      :columns="propsTableColumns"
-      :pagination="false"
-      size="small"
-    />
+    <DemoTable :data-source="propsColumns" :columns="propsTableColumns" />
 
     <h3>Expose</h3>
-    <a-table
-      :data-source="exposeColumns"
-      :columns="[
+    <DemoTable :data-source="exposeColumns" :columns="[
         { title: '方法', dataIndex: 'name' },
         { title: '说明', dataIndex: 'description' },
         { title: '类型', dataIndex: 'type' },
-      ]"
-      :pagination="false"
-      size="small"
-    />
+      ]" />
 
     <h3>Slots</h3>
-    <a-table
-      :data-source="slotsColumns"
-      :columns="[
+    <DemoTable :data-source="slotsColumns" :columns="[
         { title: '名称', dataIndex: 'name' },
         { title: '说明', dataIndex: 'description' },
         { title: '类型', dataIndex: 'type' },
-      ]"
-      :pagination="false"
-      size="small"
-    />
+      ]" />
   </div>
 </template>
 

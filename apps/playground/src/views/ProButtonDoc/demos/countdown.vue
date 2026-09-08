@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { message } from 'ant-design-vue'
-import { ProCountdownButton } from '@/ui'
+import { ProCountdownButton, uiMessage } from '@/ui'
+import DemoSpace from '@/components/DemoSpace/index.vue'
 
 defineOptions({
   name: 'ProButtonCountdownDemo',
@@ -10,7 +10,7 @@ defineOptions({
 function sendCode() {
   return new Promise((resolve) => {
     setTimeout(() => {
-      message.success('验证码已发送')
+      uiMessage.success('验证码已发送')
       resolve(true)
     }, 800)
   })
@@ -18,10 +18,10 @@ function sendCode() {
 </script>
 
 <template>
-  <a-space>
+  <DemoSpace>
     <ProCountdownButton type="primary" :seconds="10" :on-click="sendCode">发送验证码</ProCountdownButton>
     <ProCountdownButton :seconds="5" counting-text="剩余 {n} 秒" :on-click="sendCode"
       >自定义倒计时文案</ProCountdownButton
     >
-  </a-space>
+  </DemoSpace>
 </template>

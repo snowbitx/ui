@@ -20,7 +20,7 @@ function onCityChange() {
 </script>
 
 <template>
-  <a-space>
+  <DemoSpace>
     <ProSelect
       v-model:value="city"
       style="width: 160px"
@@ -35,6 +35,6 @@ function onCityChange() {
       :deps="city"
       placeholder="联动区县"
     />
-  </a-space>
+  </DemoSpace>
   <p>选中：{{ city || '-' }} / {{ district || '-' }}</p>
 </template>

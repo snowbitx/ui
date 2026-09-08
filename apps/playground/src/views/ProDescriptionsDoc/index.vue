@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { showImport } from '@/utils/showImport'
 import { ProDescriptions } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
+import DemoTable from '@/components/DemoTable/index.vue'
 import type { ApiColumn } from '@/components/ApiTable'
 import BasicDemo from './demos/basic.vue'
 import basicSource from './demos/basic.vue?raw'
@@ -42,35 +44,25 @@ const propsColumns: ApiColumn[] = [
       配合做「行详情」。
     </p>
 
-    <DemoBlock title="基础用法" :code="basicSource" :js-code="basicSourceJs">
+    <DemoBlock title="基础用法" :code="showImport(basicSource)" :js-code="showImport(basicSourceJs)">
       <BasicDemo />
     </DemoBlock>
 
     <h2>API</h2>
     <h3>Props</h3>
-    <a-table
-      :data-source="propsColumns"
-      :columns="[
+    <DemoTable :data-source="propsColumns" :columns="[
         { title: '参数', dataIndex: 'name' },
         { title: '说明', dataIndex: 'description' },
         { title: '类型', dataIndex: 'type' },
         { title: '默认值', dataIndex: 'default' },
-      ]"
-      :pagination="false"
-      size="small"
-    />
+      ]" />
 
     <h3>items 每一项</h3>
-    <a-table
-      :data-source="itemPropsColumns"
-      :columns="[
+    <DemoTable :data-source="itemPropsColumns" :columns="[
         { title: '字段', dataIndex: 'name' },
         { title: '说明', dataIndex: 'description' },
         { title: '类型', dataIndex: 'type' },
         { title: '默认值', dataIndex: 'default' },
-      ]"
-      :pagination="false"
-      size="small"
-    />
+      ]" />
   </div>
 </template>

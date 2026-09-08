@@ -24,11 +24,11 @@ const queryParams = ref({
     v-model:queryParams="queryParams"
   >
     <template #search>
-      <a-select v-model:value="queryParams.tag" style="width: 120px">
-        <a-select-option value="全部">全部</a-select-option>
-        <a-select-option value="数码">数码</a-select-option>
-        <a-select-option value="外设">外设</a-select-option>
-      </a-select>
+      <ProSelect
+        v-model="queryParams.tag"
+        style="width: 120px"
+        :options="['全部', '数码', '外设']"
+      />
     </template>
   </ProTable>
 </template>

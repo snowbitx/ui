@@ -1,4 +1,5 @@
 export { openDialog, renderDialogForm } from "./utils/openDialog";
+export { uiMessage } from "./utils/uiMessage";
 export { useOptions, useDebounce, useThrottle, useAsyncLoading } from "@snowbitx/ui-core";
 export { createApis } from "@snowbitx/ui-core";
 export type {

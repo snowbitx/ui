@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { showImport } from '@/utils/showImport'
 import { ProRadioGroup } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
 import OptionsDemo from '@/views/ProCheckboxGroupDoc/demos/options.vue'
@@ -15,7 +16,7 @@ defineOptions({
     <h1>ProRadioGroup 单选组</h1>
     <p>与 ProCheckboxGroup 同源的 options 配置驱动，支持静态数组与远程字典。</p>
 
-    <DemoBlock title="options 数据源" :code="optionsSource" :js-code="optionsSourceJs">
+    <DemoBlock title="options 数据源" :code="showImport(optionsSource)" :js-code="showImport(optionsSourceJs)">
       <OptionsDemo />
     </DemoBlock>
   </div>
