@@ -1,5 +1,5 @@
-export { openDialog, renderDialogForm } from "./utils/openDialog";
-export { uiMessage } from "./utils/uiMessage";
+export { openDialog, renderDialogForm } from "./utils/openDialog.js";
+export { uiMessage } from "./utils/uiMessage.js";
 export { useOptions, useDebounce, useThrottle, useAsyncLoading } from "@snowbitx/ui-core";
 export { createApis } from "@snowbitx/ui-core";
 export type {
@@ -28,4 +28,4 @@ export {
   ProModal,
   ProConfirmButton,
   ProDescriptions,
-} from "./components";
+} from "./components/index.js";

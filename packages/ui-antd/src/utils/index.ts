@@ -1,1 +1,1 @@
-export * from "./openDialog";
+export * from "./openDialog.js";

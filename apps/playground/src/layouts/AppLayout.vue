@@ -19,6 +19,14 @@ function switchUi(mode: UiMode) {
 function go(path: string) {
   if (path !== route.path) router.push(path)
 }
+
+// 主题色按模式区分：shadcn 是黑白灰设计语言，开关联动提示当前模式
+const modeAccent: Record<UiMode, string> = {
+  antd: '#1677ff',
+  element: '#409eff',
+  shadcn: '#0f172a',
+}
+const activeAccent = modeAccent[uiMode]
 </script>
 
 <template>
@@ -50,13 +58,17 @@ function go(path: string) {
   <div class="pg-ui-switch">
     <button :class="{ active: uiMode === 'antd' }" @click="switchUi('antd')">antd 版</button>
     <button :class="{ active: uiMode === 'element' }" @click="switchUi('element')">Element 版</button>
+    <button :class="{ active: uiMode === 'shadcn' }" @click="switchUi('shadcn')">shadcn 版</button>
   </div>
 </template>
 
 <style scoped>
+/* 外壳固定浅色：文档站不跟随系统深色模式（旧版 a-layout 自带白底，重构后需自己声明） */
 .pg-shell {
   display: flex;
   min-height: 100vh;
+  background: #fff;
+  color: #333;
 }
 .pg-sider {
   width: 220px;
@@ -174,7 +186,7 @@ function go(path: string) {
   color: #666;
 }
 .pg-ui-switch button.active {
-  background: #1677ff;
+  background: v-bind('activeAccent');
   color: #fff;
 }
 </style>

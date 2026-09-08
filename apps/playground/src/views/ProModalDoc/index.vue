@@ -35,6 +35,12 @@ const eventsColumns: ApiColumn[] = [
     type: '(e) => void',
     default: '-',
   },
+  {
+    name: 'cancel',
+    description: `点取消/关闭时触发（${docTerm('antd 模式由 a-modal 原生处理', 'element 模式由 ProModal 转发 el-dialog 关闭')}）`,
+    type: '(e) => void',
+    default: '-',
+  },
 ]
 </script>
 

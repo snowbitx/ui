@@ -3,6 +3,7 @@ import { showImport, docTerm } from '@/utils/showImport'
 import { ProTable, createApis } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
 import DemoTable from '@/components/DemoTable/index.vue'
+import DemoAlert from '@/components/DemoAlert/index.vue'
 import type { ApiColumn } from '@/components/ApiTable'
 import BasicDemo from './demos/basic.vue'
 import CustomSearchDemo from './demos/custom-search.vue'
@@ -42,14 +43,14 @@ const propsColumns: ApiColumn[] = [
     type: '{ get, create, update, remove }',
     default: '-',
   },
-  { name: 'columns', description: `表格列定义，同 ${docTerm('a-table', 'el-table')} columns`, type: 'any[]', default: '-' },
+  { name: 'columns', description: `表格列定义：${docTerm('同 a-table columns（title/dataIndex）', 'title 为列名、dataIndex 为取值字段名')}`, type: 'any[]', default: '-' },
   {
     name: 'formItems',
     description: '表单项定义，透传给 ProFormBuilder',
     type: 'any[]',
     default: '-',
   },
-  { name: 'rules', description: `表单校验规则，同 ${docTerm('a-form', 'el-form')} rules`, type: 'any', default: '-' },
+  { name: 'rules', description: `表单校验规则，同 ${docTerm('a-form', 'el-form')} rules（element 为 async-validator 格式，trigger 写 trigger: 'blur'）`, type: 'any', default: '-' },
   { name: 'rowKey', description: '行 key 的字段名', type: 'string', default: "'id'" },
   {
     name: 'beforeCreate',
@@ -136,6 +137,32 @@ const slotsColumns: ApiColumn[] = [
 </template>
 
 <style scoped>
+/* 折叠面板：替代旧版 a-collapse 的白底面板样式 */
+.custom-apis {
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+.custom-apis > summary {
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+}
+.custom-apis > summary:hover {
+  color: #1677ff;
+}
+.custom-apis > p,
+.custom-apis > pre {
+  margin: 0;
+  padding: 0 16px;
+}
+.custom-apis > pre {
+  margin-bottom: 16px;
+}
 .custom-apis-code {
   margin: 0;
   padding: 16px;

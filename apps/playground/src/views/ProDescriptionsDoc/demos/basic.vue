@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ProDescriptions } from '@/ui'
+import { ProDescriptions, ProButton } from '@/ui'
 
 defineOptions({
   name: 'ProDescriptionsDemo',

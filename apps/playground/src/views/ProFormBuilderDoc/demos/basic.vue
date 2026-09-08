@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ProButton } from '@/ui'
+import { ProButton, ProFormBuilder } from '@/ui'
 import DemoSpace from '@/components/DemoSpace/index.vue'
 
 defineOptions({
@@ -24,14 +24,21 @@ const rules = {
 
 const emit = defineEmits(['bind', 'validate'])
 
+const formRef = ref()
+
 emit('bind', formData)
+
+// 把表单实例传给文档页，页面上的"当前校验状态"由 ProFormBuilder.validate 的结果驱动
+function onValidateClick() {
+  emit('validate', formRef.value)
+}
 </script>
 
 <template>
   <div>
-    <ProFormBuilder v-model="formData" :form-items="formItems" :rules="rules" />
+    <ProFormBuilder ref="formRef" v-model="formData" :form-items="formItems" :rules="rules" />
     <DemoSpace>
-      <ProButton type="primary" @click="emit('validate', $event)">校验（在上方点）</ProButton>
+      <ProButton type="primary" @click="onValidateClick">校验（在上方点）</ProButton>
       <ProButton @click="formData = { name: '', age: 0 }">重置数据</ProButton>
     </DemoSpace>
   </div>

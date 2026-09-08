@@ -15,12 +15,11 @@ function doSearch() {
   <div>
     <DemoSpace class="vertical" style="width: 320px">
       <ProInput
-        v-model:value="keyword"
+        v-model="keyword"
         style="width: 100%"
         :debounce="400"
         placeholder="输入后停 400ms 自动搜索"
-        allow-clear
-        @press-enter="doSearch"
+        @keyup.enter="doSearch"
       />
       <ProButton type="primary" @click="doSearch">立即搜索</ProButton>
     </DemoSpace>

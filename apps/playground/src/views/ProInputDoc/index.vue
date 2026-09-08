@@ -17,7 +17,7 @@ defineOptions({
 
 const propsColumns: ApiColumn[] = [
   {
-    name: 'v-model:value',
+    name: 'v-model',
     description: '输入值；设置 debounce 后停止输入 delay 毫秒才同步',
     type: 'string',
     default: '-',

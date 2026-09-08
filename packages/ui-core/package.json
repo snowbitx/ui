@@ -1,22 +1,46 @@
 {
   "name": "@snowbitx/ui-core",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "description": "SnowUI 无 UI 依赖的核心层：createApis / hooks / 类型契约",
-  "main": "./src/index.ts",
-  "module": "./src/index.ts",
-  "types": "./src/index.ts",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snowbitx/ui.git",
+    "directory": "packages/ui-core"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
+    "build": "vite build",
+    "prepublishOnly": "pnpm build",
+    "format": "prettier --write src/",
     "type-check": "vue-tsc --noEmit -p tsconfig.json"
   },
+  "sideEffects": false,
   "peerDependencies": {
     "vue": "^3.5.17"
   },
   "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.0",
+    "@vitejs/plugin-vue-jsx": "^5.0.0",
     "@vue/tsconfig": "^0.7.0",
+    "vite": "npm:rolldown-vite@^7.3.1",
+    "vite-plugin-dts": "^4.5.4",
     "vue": "^3.5.17",
     "vue-tsc": "^2.2.10"
   }

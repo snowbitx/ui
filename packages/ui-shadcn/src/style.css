@@ -1,0 +1,14 @@
+/**
+ * SnowUI shadcn 版的全局样式（开箱即用入口）：
+ * - Tailwind CSS v4（@tailwindcss/vite 插件编译，@import "tailwindcss"）
+ * - tw-animate-css 提供 data-[state] 进出场动画工具类
+ * - 设计令牌与主题映射在同目录 tailwind.preset.css
+ *
+ * 使用方：`import "@snowbitx/ui-shadcn/style.css"`。
+ * 已有自己的 Tailwind 入口、只要令牌的，用
+ * `@import "@snowbitx/ui-shadcn/tailwind.preset.css"`。
+ * 与 antd / element 的 reset 样式互斥，切换 UI 模式时由使用方动态加载其一。
+ */
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./tailwind.preset.css";

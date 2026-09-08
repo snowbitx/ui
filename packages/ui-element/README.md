@@ -1,0 +1,35 @@
+# @snowbitx/ui-element
+
+基于 [element-plus](https://element-plus.org/) 的 SnowUI 二次封装组件库，API 与 `@snowbitx/ui-antd` 完全对齐，提供开箱即用的中后台组件：
+
+- **ProTable** — 搜索表单 + 表格 + 分页一体化
+- **ProFormBuilder** — JSON 配置化表单
+- **ProButton / ProCountdownButton / ProConfirmButton** — 带防抖 / 倒计时 / 二次确认的按钮
+- **ProInput** — 自动搜索防抖输入框
+- **ProSelect / ProCheckboxGroup / ProRadioGroup** — 字典驱动的选择组件
+- **ProModal** — 受控/命令式弹窗
+- **ProDescriptions** — 描述列表
+- **openDialog** — 命令式打开弹窗的工具函数
+
+## 安装
+
+```sh
+pnpm add @snowbitx/ui-element element-plus
+```
+
+peer 依赖：`vue ^3.5`、`element-plus ^2.9`。
+
+## 使用
+
+```vue
+<script setup lang="ts">
+import { ProTable } from "@snowbitx/ui-element";
+// 或按需深路径引入：import ProTable from "@snowbitx/ui-element/components/ProTable";
+</script>
+```
+
+同系列还有 [@snowbitx/ui-antd](https://www.npmjs.com/package/@snowbitx/ui-antd)（ant-design-vue 版）与 [@snowbitx/ui-shadcn](https://www.npmjs.com/package/@snowbitx/ui-shadcn)（shadcn-vue 版），API 完全对齐，可按 UI 库切换。
+
+## License
+
+MIT

@@ -15,6 +15,8 @@ const props = defineProps<{
   valueField?: string;
   /** 远程字典的依赖值，变化时自动重新拉取 */
   deps?: any;
+  /** 是否多选（跨库统一布尔写法，内部转成 a-select 的 mode="multiple"） */
+  multiple?: boolean;
 }>();
 
 const model = defineModel<any>();
@@ -31,11 +33,18 @@ function toOption(item: any) {
     value: props.valueField ? item[props.valueField] : item,
   };
 }
+
+const selectProps = computed(() => {
+  // 剥掉封装层自己的字段，剩余的允许直接透传给 a-select；
+  // multiple 布尔写法归一化为 a-select 需要的 mode="multiple"
+  const { options: _o, labelField: _l, valueField: _v, deps: _d, multiple, ...rest } = props;
+  return { ...rest, mode: multiple ? "multiple" : (rest as any).mode };
+});
 </script>
 
 <template>
   <a-select
-    v-bind="$attrs"
+    v-bind="{ ...$attrs, ...selectProps }"
     v-model:value="model"
     :options="innerOptions.map(toOption)"
     :loading="isLoading || undefined"

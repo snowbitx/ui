@@ -1,4 +1,4 @@
-export { createApis } from "./utils/createApis";
-export * from "./types";
-export * from "./composables/useOptions";
-export * from "./composables/hooks";
+export { createApis } from "./utils/createApis.js";
+export * from "./types.js";
+export * from "./composables/useOptions.js";
+export * from "./composables/hooks.js";

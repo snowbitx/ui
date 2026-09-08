@@ -22,14 +22,14 @@ function onCityChange() {
 <template>
   <DemoSpace>
     <ProSelect
-      v-model:value="city"
+      v-model="city"
       style="width: 160px"
       :options="Object.keys(cityDict).map((name) => ({ label: name, value: name }))"
       placeholder="选择城市"
       @change="onCityChange"
     />
     <ProSelect
-      v-model:value="district"
+      v-model="district"
       style="width: 160px"
       :options="fetchDistricts"
       :deps="city"

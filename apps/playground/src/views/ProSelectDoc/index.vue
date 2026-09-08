@@ -16,7 +16,7 @@ defineOptions({
 })
 
 const propsColumns: ApiColumn[] = [
-  { name: 'v-model:value', description: '选中值（多选时为数组）', type: 'any', default: '-' },
+  { name: 'v-model', description: '选中值（多选时为数组）', type: 'any', default: '-' },
   {
     name: 'options',
     description: '选项数据源：静态数组 / 字符串数组 / 返回数组的函数（自动 loading）',
@@ -34,6 +34,12 @@ const propsColumns: ApiColumn[] = [
     description: '远程字典的依赖值，变化时自动重新拉取（级联场景）',
     type: 'any',
     default: '-',
+  },
+  {
+    name: 'multiple',
+    description: `是否多选，跨库统一布尔写法（${docTerm('antd', 'element')} 模式下内部转成 ${docTerm('mode="multiple"', 'el-select 原生 multiple')}）`,
+    type: 'boolean',
+    default: 'false',
   },
 ]
 </script>
@@ -57,6 +63,12 @@ const propsColumns: ApiColumn[] = [
 
     <h2>API</h2>
     <h3>Props</h3>
+    <p>
+      v-model 统一为裸写法 <code>v-model="value"</code>（antd 底层的 a-select 是
+      <code>v-model:value</code>、element 底层的 el-select 是 <code>v-model</code>，Pro
+      组件已抹平），其余属性原样透传给 {{ docTerm('a-select', 'el-select') }}；多选直接写布尔
+      <code>multiple</code>，不用关心 {{ docTerm('mode="multiple"', 'multiple') }} 的库间差异。
+    </p>
     <DemoTable :data-source="propsColumns" :columns="[
         { title: '参数', dataIndex: 'name' },
         { title: '说明', dataIndex: 'description' },

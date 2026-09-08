@@ -19,7 +19,7 @@ function fetchRoles() {
     <div>
       <p>多选（静态 options）：</p>
       <ProCheckboxGroup
-        v-model:value="checked"
+        v-model="checked"
         :options="[
           { label: '选项 A', value: 'a' },
           { label: '选项 B', value: 'b' },
@@ -28,11 +28,11 @@ function fetchRoles() {
     </div>
     <div>
       <p>多选（远程字典）：</p>
-      <ProCheckboxGroup v-model:value="checked" :options="fetchRoles" />
+      <ProCheckboxGroup v-model="checked" :options="fetchRoles" />
     </div>
     <div>
-      <p>单选（远程字典 + button 样式）：</p>
-      <ProRadioGroup v-model:value="radio" :options="fetchRoles" option-type="button" />
+      <p>单选（远程字典）：</p>
+      <ProRadioGroup v-model="radio" :options="fetchRoles" />
     </div>
   </DemoSpace>
   <p>checkbox：{{ JSON.stringify(checked) }}，radio：{{ radio }}</p>

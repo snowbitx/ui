@@ -1,0 +1,7 @@
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+/** shadcn 惯用的类名合并工具 */
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}

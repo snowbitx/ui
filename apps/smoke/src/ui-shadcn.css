@@ -1,0 +1,8 @@
+/*
+ * Tailwind v4 编译入口（smoke 专用）：
+ * source(none) 关闭对本 app 源码的扫描，@source 精确扫描 ui-shadcn 的
+ * dist 产物——冒烟站要验证的正是 dist，扫描源码会漏掉 dist 里的类名。
+ * pnpm 的 symlink 会让相对路径失效，因此写仓库内绝对路径。
+ */
+@import "@snowbitx/ui-shadcn/style.css" source(none);
+@source "/Users/wangxiaoyu/project/snowbitx-ui/packages/ui-shadcn/dist";

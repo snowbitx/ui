@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import { omit } from "lodash-es";
 import { useOptions } from "@snowbitx/ui-core";
 
 defineOptions({
@@ -15,6 +16,8 @@ const props = defineProps<{
   valueField?: string;
   /** 远程字典的依赖值，变化时自动重新拉取 */
   deps?: any;
+  /** 是否多选（与 ui-antd 的 multiple 布尔写法对齐，el-select 原生支持） */
+  multiple?: boolean;
 }>();
 
 const model = defineModel<any>();
@@ -34,7 +37,11 @@ function toOption(item: any) {
 </script>
 
 <template>
-  <el-select v-bind="$attrs" v-model="model" :loading="isLoading || undefined">
+  <el-select
+    v-bind="{ ...$attrs, ...omit(props, ['options', 'labelField', 'valueField', 'deps']) }"
+    v-model="model"
+    :loading="isLoading || undefined"
+  >
     <el-option v-for="opt in innerOptions.map(toOption)" :key="opt.value" :label="opt.label" :value="opt.value" />
     <template v-for="(_, name) in $slots" #[name]="slotProps" :key="name">
       <slot :name="name" v-bind="slotProps"></slot>

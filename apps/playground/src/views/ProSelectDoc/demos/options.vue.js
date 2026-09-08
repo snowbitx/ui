@@ -23,7 +23,7 @@ function fetchTypes() {
     <div style="width: 320px">
       <p>静态 options：</p>
       <ProSelect
-        v-model:value="value"
+        v-model="value"
         style="width: 100%"
         :options="[
           { label: '选项 A', value: 'a' },
@@ -34,8 +34,8 @@ function fetchTypes() {
     <div style="width: 320px">
       <p>字符串数组（labelField/valueField 同值）：</p>
       <ProSelect
-        v-model:value="value2"
-        mode="multiple"
+        v-model="value2"
+        multiple
         style="width: 100%"
         :options="['苹果', '香蕉', '橘子']"
         placeholder="多选"
@@ -43,7 +43,7 @@ function fetchTypes() {
     </div>
     <div style="width: 320px">
       <p>远程字典（自动 loading）：</p>
-      <ProSelect v-model:value="value" style="width: 100%" :options="fetchTypes" placeholder="远程字典" />
+      <ProSelect v-model="value" style="width: 100%" :options="fetchTypes" placeholder="远程字典" />
     </div>
   </DemoSpace>
 </template>

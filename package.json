@@ -3,22 +3,24 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "pnpm --filter @snowbitx/demo dev",
-    "dev:playground": "pnpm --filter @snowbitx/playground dev",
+    "play": "pnpm -C apps/playground dev",
+    "demo": "pnpm -C apps/demo dev",
+    "smoke": "pnpm -C apps/smoke dev",
     "build": "pnpm -r build",
     "type-check": "pnpm -r type-check",
     "lint": "pnpm -r lint",
     "format": "prettier --write \"**/src/**/*.{ts,vue,js,json}\"",
-    "gen:pages": "pnpm --filter @snowbitx/page-generator gen",
+    "gen:pages": "node packages/page-generator/src/cli.mjs",
     "mock": "node scripts/mock-server/server.mjs",
-    "mock:start": "pnpm mock & pnpm gen:pages",
-    "dev:playground:element": "pnpm --filter @snowbitx/playground dev:element"
+    "mock:start": "pnpm mock & pnpm gen:pages"
   },
   "devDependencies": {
     "@types/node": "^22.15.32",
     "eslint": "^9.29.0",
     "prettier": "3.5.3",
     "typescript": "~5.8.0",
+    "vite": "npm:rolldown-vite@^7.3.1",
+    "vite-plugin-dts": "^4.5.4",
     "vue": "^3.5.17"
   },
   "packageManager": "pnpm@10.33.2"

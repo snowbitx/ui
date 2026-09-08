@@ -13,10 +13,9 @@ watch(keyword, (value) => {
 <template>
   <div>
     <ProInput
-      v-model:value="keyword"
+      v-model="keyword"
       :debounce="500"
       placeholder="停止输入 500ms 后才同步（看控制台）"
-      allow-clear
     />
     <p>当前值：{{ keyword || '（空）' }}</p>
   </div>

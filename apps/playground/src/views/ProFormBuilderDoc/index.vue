@@ -51,8 +51,7 @@ const itemPropsColumns: ApiColumn[] = [
   { name: 'key', description: '字段名，对应 formData 里的属性', type: 'string', default: '-' },
   {
     name: 'type',
-    description:
-      '内置类型：input / textarea / number / date / select / checkbox / modal；也可直接传组件',
+    description: `内置类型：input / textarea / number / date / select / checkbox${docTerm(' / modal', '')}；也可直接传组件`,
     type: "string | Component",
     default: "'input'",
   },
@@ -99,7 +98,12 @@ const exposeColumns: ApiColumn[] = [
 
 const validateResult = ref('还没校验')
 
+// demo 通过 @validate 传上来的就是 ProFormBuilder 实例（formRef.value）
 function onValidate(vm: any) {
+  if (!vm || typeof vm.validate !== 'function') {
+    validateResult.value = '校验失败 ❌（未拿到表单实例）'
+    return
+  }
   vm.validate()
     .then(() => {
       validateResult.value = '校验通过 ✅，数据在控制台'
@@ -120,8 +124,10 @@ function onBind(data: Record<string, any>) {
   <div>
     <h1>ProFormBuilder 配置式表单</h1>
     <p>
-      通过 JSON 数组渲染表单，是 ProTable 弹窗表单的底层。内置类型会自动处理 ant-design-vue 的
-      v-model 差异（<code>value</code> / <code>checked</code> / <code>open</code>）。
+      通过 JSON 数组渲染表单，是 ProTable 弹窗表单的底层。内置类型统一用裸
+      <code>v-model</code>（modelValue）读写数据，自动适配
+      {{ docTerm('a-input 等 antd 组件的 v-model:value / v-model:checked / v-model:open', 'el-input 等 element 组件的 v-model') }}
+      差异。
     </p>
 
     <DemoBlock title="基础用法（v-model 双向绑定）" :code="showImport(demoSource)" :js-code="showImport(demoSourceJs)">
