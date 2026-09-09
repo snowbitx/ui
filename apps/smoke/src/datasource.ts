@@ -10,23 +10,26 @@ export const users = [
 
 export function makeApis() {
   const rows = users.map((row) => ({ ...row }))
+  const snapshot = () => ({ data: rows.map((row) => ({ ...row })) })
   return {
-    get: async () => ({ data: rows }),
+    // get 每次返回行拷贝：若直接回传同一 rows 引用，新增后 loadData 赋值同引用不会触发表格重渲染
+    get: async () => snapshot(),
     create: async (data: Record<string, any>) => {
       data.id = rows.length + 1
       rows.push(data)
-      return { data: rows }
+      return snapshot()
     },
     update: async (data: Record<string, any>) => {
       const index = rows.findIndex((row) => row.id === data.id)
       if (index !== -1) rows[index] = data
-      return { data: rows }
+      return snapshot()
     },
     remove: async (ids: Array<string | number>) => {
       for (const id of ids) {
         const index = rows.findIndex((row) => row.id === id)
         if (index !== -1) rows.splice(index, 1)
       }
+      return snapshot()
     },
   }
 }

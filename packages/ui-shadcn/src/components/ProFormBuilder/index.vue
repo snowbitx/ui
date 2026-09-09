@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { Checkbox as ShadCheckbox, Input as ShadInput, Select as ShadSelect, SelectTrigger as ShadSelectTrigger, SelectValue as ShadSelectValue, SelectContent as ShadSelectContent, SelectItem as ShadSelectItem, Textarea as ShadTextarea } from "../ui";
-import { omit } from "lodash-es";
+import { omitBy } from "lodash-es";
 import { computed, h, ref, type Component } from "vue";
 import type { FormItem } from "@snowbitx/ui-core";
 
@@ -24,12 +24,12 @@ const span = computed(() => props.span ?? 24);
 // hidden 过滤放 computed：formItems 用 computed 传响应式配置时，联动显隐自动生效
 const visibleItems = computed(() => props.formItems.filter((item) => item.hidden !== true));
 
-// 传给渲染组件的 props 要剔除表单布局用的字段
+// 传给渲染组件的 props 要剔除表单布局用的字段（omit 只接受属性名，正则需用 omitBy 过滤）
 const baseFieldReg = /^(label|key|type|span|hidden|slots|props|rules)$/;
 
 function getProps(item: FormItem) {
   if (item.props) return item.props;
-  return omit(item, baseFieldReg);
+  return omitBy(item, (_value, key) => baseFieldReg.test(key ?? ""));
 }
 
 /** 单项渲染出来的统一形态：受控 modelValue + 透传 props */

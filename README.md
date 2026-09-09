@@ -29,7 +29,7 @@ scripts/mock-server          # 模拟「后端登记页面 JSON 的公开文档�
 三个前端入口的分工：
 
 - **demo**（`pnpm demo`）：页面全部由脚本生成，演示「通过一份 JSON 渲染页面」，固定 antd 版。
-- **playground**（`pnpm play`）：手写的固定演示站，每个组件一个文档页（效果 / 代码切换 + API 表格），类似 ant-design-vue 官网。页面右上角可一键切换 antd / Element / shadcn 实现，是组件开发的主战场。
+- **playground**（`pnpm dev`）：手写的固定演示站，每个组件一个文档页（效果 / 代码切换 + API 表格），类似 ant-design-vue 官网。页面右上角可一键切换 antd / Element / shadcn 实现，是组件开发的主战场。
 - **smoke**（`pnpm smoke`）：打包产物冒烟站。无代理层、按模式直接 import 各实现包 `dist` 里的主入口与全部深路径导出；`pnpm build` 后跑它，能开就能发。
 - **mock-server**（`pnpm mock`）：给上面提供数据的假后端（smoke 除外，它数据内联）。
 
@@ -53,7 +53,7 @@ pnpm gen:pages
 pnpm demo
 
 # 或者启动组件演示站（playground）
-pnpm play
+pnpm dev
 ```
 
 也可以一步到位：`pnpm mock:start`（后台起 mock 服务并执行生成）。
@@ -119,13 +119,13 @@ const formItems = [{ label: "姓名", key: "name", type: "input" }];
 | `ProFormBuilder` | JSON 数组渲染表单，自动处理 antdv 的 v-model 差异 |
 | `openDialog` | 命令式弹窗，点确定自动调组件的 submit() 并管理 loading/销毁 |
 
-所有组件的完整交互演示和 API 表格见 playground：`pnpm play`。
+所有组件的完整交互演示和 API 表格见 playground：`pnpm dev`。
 
 ## 常用脚本
 
 | 命令             | 说明                                                          |
 | ---------------- | ------------------------------------------------------------- |
-| `pnpm play`      | 启动组件演示站（apps/playground，右上角切 antd/element/shadcn） |
+| `pnpm dev`      | 启动组件演示站（apps/playground，右上角切 antd/element/shadcn） |
 | `pnpm demo`      | 启动 demo 应用（apps/demo，页面由 JSON 生成，antd 版）          |
 | `pnpm smoke`     | 启动冒烟站（apps/smoke，需先 `pnpm build`）                    |
 | `pnpm mock`      | 启动模拟后端（scripts/mock-server，端口 4173）                 |

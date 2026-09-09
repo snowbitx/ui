@@ -34,8 +34,9 @@ const impl: Record<string, any> =
       ? await import('@snowbitx/ui-shadcn')
       : await import('@snowbitx/ui-antd')
 
-// 把实现包的全部导出平铺为本模块导出（含类型侧的运行时值）
-const { default: _implDefault, ...named } = impl as Record<string, any>
+// 把实现包的全部导出平铺为本模块导出（含类型侧的运行时值）；default 导出无消费方，解构丢弃
+const { default: _, ...named } = impl as Record<string, any>
+void _;
 export const {
   ProTable,
   ProTableForm,

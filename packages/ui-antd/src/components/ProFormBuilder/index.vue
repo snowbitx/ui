@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { Checkbox, DatePicker, Input, InputNumber, Modal, Select, Textarea } from "ant-design-vue";
-import { omit } from "lodash-es";
+import { omitBy } from "lodash-es";
 import { computed, h, ref, type Component } from "vue";
 import type { FormInstance } from "ant-design-vue";
 
@@ -73,7 +73,7 @@ const map: Record<string, Component> = {
   modal: transformModelValue(Modal, "open"),
 };
 
-// 传给渲染组件的 props 要剔除表单布局用的字段
+// 传给渲染组件的 props 要剔除表单布局用的字段（omit 只接受属性名，正则需用 omitBy 过滤）
 const baseFieldReg = /^(label|key|type|span|hidden|slots|props|rules)$/;
 
 function getComponent(item: FormItem): Component {
@@ -85,7 +85,7 @@ function getComponent(item: FormItem): Component {
 
 function getProps(item: FormItem) {
   if (item.props) return item.props;
-  return omit(item, baseFieldReg);
+  return omitBy(item, (_value, key) => baseFieldReg.test(key ?? ""));
 }
 
 // select 类默认 placeholder 用"请选择"，其余用"请输入"

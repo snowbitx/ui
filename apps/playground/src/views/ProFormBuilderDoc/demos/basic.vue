@@ -26,7 +26,7 @@ const emit = defineEmits(['bind', 'validate'])
 
 const formRef = ref()
 
-emit('bind', formData)
+emit('bind', formData.value)
 
 // 把表单实例传给文档页，页面上的"当前校验状态"由 ProFormBuilder.validate 的结果驱动
 function onValidateClick() {

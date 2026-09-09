@@ -10,7 +10,7 @@
 smoke 站无代理层，按模式直接 import 指定实现包的 **dist 产物**，聚焦「发包能不能用」。
 
 ```bash
-pnpm play        # 开发调试组件用这个
+pnpm dev        # 开发调试组件用这个
 pnpm build       # 需要验证打包产物时构建全部包
 pnpm smoke       # 然后开冒烟站
 ```

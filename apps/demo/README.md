@@ -11,5 +11,5 @@
 
 demo 固定使用 `@snowbitx/ui-antd`（页面生成模板写死 antd 版组件）。
 
-需要逐个组件看用法/切 UI 库，去 playground（`pnpm play`）；
+需要逐个组件看用法/切 UI 库，去 playground（`pnpm dev`）；
 需要验证发包形态，去 smoke（`pnpm smoke`）。

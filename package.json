@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "play": "pnpm -C apps/playground dev",
+    "dev": "pnpm -C apps/playground dev",
     "demo": "pnpm -C apps/demo dev",
     "smoke": "pnpm -C apps/smoke dev",
     "build": "pnpm -r build",

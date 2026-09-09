@@ -97,6 +97,8 @@ function crud(resource) {
         const index = rows.findIndex((row) => row.id === id);
         if (index !== -1) rows.splice(index, 1);
       }
+      // 必须返回 JSON（createApis 的 res.json() 遇空响应体会 reject，导致前端误判"删除失败"且不刷新列表）
+      return { data: rows };
     },
   };
 }

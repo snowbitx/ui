@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { showImport, docTerm } from '@/utils/showImport'
-import { ProButton, ProCountdownButton } from '@/ui'
 import DemoBlock from '@/components/DemoBlock/index.vue'
 import DemoTable from '@/components/DemoTable/index.vue'
 import type { ApiColumn } from '@/components/ApiTable'
