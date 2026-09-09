@@ -29,7 +29,7 @@ scripts/mock-server          # 模拟「后端登记页面 JSON 的公开文档�
 三个前端入口的分工：
 
 - **demo**（`pnpm demo`）：页面全部由脚本生成，演示「通过一份 JSON 渲染页面」，固定 antd 版。
-- **playground**（`pnpm dev`）：手写的固定演示站，每个组件一个文档页（效果 / 代码切换 + API 表格），类似 ant-design-vue 官网。页面右上角可一键切换 antd / Element / shadcn 实现，是组件开发的主战场。
+- **playground**（`pnpm dev`）：手写的固定演示站，每个组件一个文档页（效果在上、代码在下同屏展示，眼睛图标展开/收起代码，TS/JS 切换语言版本 + API 表格），类似 element-plus 官网。页面右上角可一键切换 antd / Element / shadcn 实现，是组件开发的主战场。
 - **smoke**（`pnpm smoke`）：打包产物冒烟站。无代理层、按模式直接 import 各实现包 `dist` 里的主入口与全部深路径导出；`pnpm build` 后跑它，能开就能发。
 - **mock-server**（`pnpm mock`）：给上面提供数据的假后端（smoke 除外，它数据内联）。
 
@@ -57,6 +57,13 @@ pnpm dev
 ```
 
 也可以一步到位：`pnpm mock:start`（后台起 mock 服务并执行生成）。
+
+### 部署到 Vercel
+
+仓库根的 `vercel.json` 已配好：构建命令 `pnpm build`（先构建三个 UI 实现包，再构建各应用）、
+产物目录 `apps/playground/dist`、SPA 回退（hash 路由下仅兜底刷新场景）。静态部署没有
+mock-server，playground 的 `createApis` 已内置兜底（`src/ui/demo-fallback.ts`）：接口不可达时
+自动回退内存数据，线上文档站的 ProTable 新增 / 删除 / 筛选照常可演示（改动仅存活在当前页面会话）。
 
 > 完整链路讲解见 [docs/页面生成链路讲解.md](docs/页面生成链路讲解.md)。
 

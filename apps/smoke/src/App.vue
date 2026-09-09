@@ -45,11 +45,20 @@ function go(path: string) {
   </div>
 </template>
 
+<style>
+/* 清掉 body 默认 margin，100vh 外壳才不会出现整页双重滚动 */
+body {
+  margin: 0;
+}
+</style>
+
 <style scoped>
 /* 外壳刻意用纯 HTML/CSS：不依赖任何被测组件库 */
+/* 外壳锁定视口高度：侧边栏固定，滚动只发生在中间内容区内部 */
 .smoke-shell {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
   background: #fff;
   color: #333;
   font-family: system-ui, -apple-system, sans-serif;
@@ -58,6 +67,7 @@ function go(path: string) {
   width: 210px;
   flex-shrink: 0;
   border-right: 1px solid #eee;
+  overflow-y: auto;
 }
 .smoke-logo {
   height: 56px;
@@ -100,6 +110,7 @@ function go(path: string) {
   padding: 20px 32px;
   max-width: 1080px;
   box-sizing: border-box;
+  overflow-y: auto;
 }
 .smoke-content :deep(h1) {
   font-size: 20px;

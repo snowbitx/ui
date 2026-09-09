@@ -62,11 +62,20 @@ const activeAccent = modeAccent[uiMode]
   </div>
 </template>
 
+<style>
+/* 全局：清掉 body 默认 margin，100vh 外壳才不会出现整页双重滚动 */
+body {
+  margin: 0;
+}
+</style>
+
 <style scoped>
 /* 外壳固定浅色：文档站不跟随系统深色模式（旧版 a-layout 自带白底，重构后需自己声明） */
+/* 外壳锁定视口高度：侧边栏固定，滚动只发生在中间内容区内部 */
 .pg-shell {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
   background: #fff;
   color: #333;
 }
@@ -75,6 +84,7 @@ const activeAccent = modeAccent[uiMode]
   flex-shrink: 0;
   border-right: 1px solid #f0f0f0;
   background: #fff;
+  overflow-y: auto;
 }
 .pg-logo {
   height: 56px;
@@ -121,6 +131,7 @@ const activeAccent = modeAccent[uiMode]
   padding: 24px 48px;
   max-width: 1100px;
   box-sizing: border-box;
+  overflow-y: auto;
 }
 
 /* 文档页排版：内容区里的标题 / 段落 / 表格统一间距 */

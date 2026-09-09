@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 defineOptions({
   name: 'DemoBlock',
@@ -14,47 +14,92 @@ const props = defineProps<{
   jsCode?: string
 }>()
 
-// 'demo' 显示效果；'ts' / 'js' 显示对应版本源码
-const activeKey = ref<'demo' | 'ts' | 'js'>('demo')
+// 仿 element 官网文档：效果常驻上方，代码区在下方通过眼睛图标展开/收起，二者同屏可见；
+// TS / JS 只决定展开后展示哪份源码。点语言时顺手展开，避免选了没反馈。
+const codeVisible = ref(false)
+const lang = ref<'ts' | 'js'>('ts')
 
-const tabs = [
-  { key: 'demo' as const, label: '效果' },
-  { key: 'ts' as const, label: 'TS' },
-  { key: 'js' as const, label: 'JS' },
-]
+function pickLang(next: 'ts' | 'js') {
+  lang.value = next
+  codeVisible.value = true
+}
+
+const shownCode = computed(() => (lang.value === 'js' && props.jsCode ? props.jsCode : props.code).trim())
 </script>
 
 <template>
-  <!-- 纯 HTML tab：DemoBlock 是文档站基础设施，不依赖任何 UI 库 -->
+  <!-- 纯 HTML + 内联 SVG：DemoBlock 是文档站基础设施，不依赖任何 UI 库 -->
   <section class="demo-block">
     <header class="demo-block-header">
       <h3>{{ props.title }}</h3>
-      <div class="demo-block-tabs">
+      <div class="demo-block-actions">
+        <div class="demo-block-langs" role="group" aria-label="代码语言">
+          <button
+            class="demo-block-lang"
+            :class="{ active: lang === 'ts' }"
+            type="button"
+            @click="pickLang('ts')"
+          >
+            TS
+          </button>
+          <button
+            v-if="props.jsCode"
+            class="demo-block-lang"
+            :class="{ active: lang === 'js' }"
+            type="button"
+            @click="pickLang('js')"
+          >
+            JS
+          </button>
+        </div>
         <button
-          v-for="t in (props.jsCode ? tabs : tabs.filter((x) => x.key !== 'js'))"
-          :key="t.key"
-          class="demo-block-tab"
-          :class="{ active: activeKey === t.key }"
-          :title="t.label"
-          @click="activeKey = t.key"
+          class="demo-block-eye"
+          type="button"
+          :aria-pressed="codeVisible"
+          :title="codeVisible ? '隐藏代码' : '显示代码'"
+          @click="codeVisible = !codeVisible"
         >
-          <span v-if="t.key === 'demo'" class="demo-block-icon" aria-label="效果">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
-              <path d="M12 4.5C7 4.5 2.7 7.6 1 12c1.7 4.4 6 7.5 11 7.5s9.3-3.1 11-7.5c-1.7-4.4-6-7.5-11-7.5zM12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+          <span class="demo-block-icon" aria-hidden="true">
+            <svg
+              v-if="codeVisible"
+              viewBox="0 0 24 24"
+              width="15"
+              height="15"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+            <svg
+              v-else
+              viewBox="0 0 24 24"
+              width="15"
+              height="15"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"
+              />
+              <line x1="1" y1="1" x2="23" y2="23" />
             </svg>
           </span>
-          <template v-else>{{ t.label }}</template>
         </button>
       </div>
     </header>
 
-    <div class="demo-block-body">
-      <div v-show="activeKey === 'demo'" class="demo-block-demo">
-        <slot></slot>
-      </div>
-      <pre v-show="activeKey !== 'demo'" class="demo-block-code"><code>{{
-        (activeKey === 'js' && props.jsCode ? props.jsCode : props.code).trim()
-      }}</code></pre>
+    <div class="demo-block-demo">
+      <slot></slot>
+    </div>
+    <div v-show="codeVisible" class="demo-block-code">
+      <pre><code>{{ shownCode }}</code></pre>
     </div>
   </section>
 </template>
@@ -77,46 +122,64 @@ const tabs = [
   margin: 0;
   font-size: 15px;
 }
-.demo-block-tabs {
+.demo-block-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.demo-block-langs {
   display: flex;
   border: 1px solid #d9d9d9;
   border-radius: 6px;
   overflow: hidden;
 }
-.demo-block-tab {
+.demo-block-lang {
   border: none;
   background: transparent;
   padding: 3px 12px;
   font-size: 12px;
   cursor: pointer;
   color: #666;
-  display: inline-flex;
-  align-items: center;
 }
-.demo-block-tab + .demo-block-tab {
+.demo-block-lang + .demo-block-lang {
   border-left: 1px solid #d9d9d9;
 }
-.demo-block-tab.active {
+.demo-block-lang.active {
   background: #1677ff;
   color: #fff;
+}
+.demo-block-eye {
+  border: 1px solid #d9d9d9;
+  background: transparent;
+  border-radius: 6px;
+  width: 26px;
+  height: 24px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #666;
+}
+.demo-block-eye:hover {
+  color: #1677ff;
+  border-color: #1677ff;
 }
 .demo-block-icon {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 14px;
-  height: 14px;
-  vertical-align: -2px;
 }
-.demo-block-body {
+.demo-block-demo {
   padding: 24px;
   background: #fff;
 }
 .demo-block-code {
-  margin: 0;
-  padding: 0;
+  border-top: 1px solid #f0f0f0;
   background: #fafafa;
-  border-radius: 6px;
+}
+.demo-block-code pre {
+  margin: 0;
+  padding: 16px;
   font-size: 13px;
   line-height: 1.6;
   overflow: auto;

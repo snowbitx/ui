@@ -38,8 +38,10 @@ function isActive(path: string) {
 body {
   margin: 0;
 }
+/* 布局锁定视口高度：侧边栏固定，滚动只发生在中间内容区内部 */
 .app-layout {
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
 }
 .app-logo {
   height: 48px;
@@ -50,6 +52,7 @@ body {
 }
 .app-content {
   padding: 24px;
+  overflow-y: auto;
 }
 .is-active {
   color: #1677ff;
