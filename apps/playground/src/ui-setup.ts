@@ -10,16 +10,9 @@ import { currentUiMode } from './ui/index'
 export type { UiMode } from './ui/index'
 export const uiMode = currentUiMode()
 
-/** shadcn 模式下动态注入 Tailwind 编译的组件库样式 */
+/** shadcn 模式下动态注入 Tailwind 编译的组件库样式（?inline 返回纯 CSS 字符串） */
 async function injectShadcnStyle() {
-  const cssModule: any = await import('./ui-shadcn.css')
-  // vite 的 CSS 模块可能把内容放在 default / 无名导出上，兼容两种形态
-  const css: string =
-    typeof cssModule?.default === 'string'
-      ? cssModule.default
-      : typeof cssModule === 'string'
-        ? cssModule
-        : Object.values(cssModule).find((v) => typeof v === 'string') || ''
+  const css: string = (await import('./ui-shadcn.css?inline')).default
   const styleEl = document.createElement('style')
   styleEl.setAttribute('data-snowui-shadcn', '')
   styleEl.textContent = css

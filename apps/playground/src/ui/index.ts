@@ -12,6 +12,8 @@
  * 加载完成前是 undefined，加载完成后变为真实组件——由于所有 demo 都在
  * <Suspense>/异步路由组件之后渲染，实际取值发生在填充完成之后。
  */
+import { withDemoFallback } from './demo-fallback'
+
 export type UiMode = 'antd' | 'element' | 'shadcn'
 
 export const UI_MODES: UiMode[] = ['antd', 'element', 'shadcn']
@@ -37,6 +39,11 @@ const impl: Record<string, any> =
 // 把实现包的全部导出平铺为本模块导出（含类型侧的运行时值）；default 导出无消费方，解构丢弃
 const { default: _, ...named } = impl as Record<string, any>
 void _;
+// 文档站 createApis 包一层兜底：静态部署（如 Vercel）没有 /api 后端，
+// 请求失败或响应不符合 CRUD 约定时回退到内存数据，保证线上演示完整增删改查
+if (typeof named.createApis === 'function') {
+  named.createApis = withDemoFallback(named.createApis)
+}
 export const {
   ProTable,
   ProTableForm,
