@@ -33,8 +33,8 @@ export function generatePageSfc(schema: PageSchema): string {
   const rulesCode = rules ? toLiteralLines(rules, 1) : undefined;
 
   return `<script setup lang="ts">
-import { ProTable, createApis } from '@snowbitx/ui-antd'
-import type { PageSchema } from '@snowbitx/page-generator'
+import { ProTable, createApis } from '@cynnie/ui-antd'
+import type { PageSchema } from '@cynnie/page-generator'
 
 defineOptions({
   name: '${name}',

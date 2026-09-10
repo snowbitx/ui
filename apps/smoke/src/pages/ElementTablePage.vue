@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ProButton, ProTable, createApis, uiMessage } from '@snowbitx/ui-element'
+import { ProButton, ProTable, createApis, uiMessage } from '@cynnie/ui-element'
 import Case from '../components/Case.vue'
 import { makeApis, tableColumns, tableFormItems, tableRules } from '../datasource'
 
@@ -13,7 +13,7 @@ const inlineApis = makeApis()
 </script>
 
 <template>
-  <h1>@snowbitx/ui-element ProTable</h1>
+  <h1>@cynnie/ui-element ProTable</h1>
   <p class="hint">createApis + ProTable 组合；数据内联（PageApis 形状），不依赖 mock-server</p>
 
   <Case title="ProTable 增删改查一体">

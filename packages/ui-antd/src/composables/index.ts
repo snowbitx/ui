@@ -1,1 +1,1 @@
-export * from "@snowbitx/ui-core";
+export * from "@cynnie/ui-core";

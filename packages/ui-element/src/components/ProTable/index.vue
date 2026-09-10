@@ -3,7 +3,7 @@ import { ref, shallowRef } from "vue";
 import { ElMessage, ElMessageBox } from "element-plus";
 import { openDialog } from "../../utils/openDialog";
 import ProTableForm from "./ProTableForm.vue";
-import type { PageApis, TableColumn, FormItem, FormRules } from "@snowbitx/ui-core";
+import type { PageApis, TableColumn, FormItem, FormRules } from "@cynnie/ui-core";
 
 defineOptions({
   name: "ProTable",

@@ -1,8 +1,8 @@
 export { openDialog, renderDialogForm } from "./utils/openDialog.js";
 export { uiMessage } from "./utils/uiMessage.js";
-export { createApis } from "@snowbitx/ui-core";
-export { useOptions } from "@snowbitx/ui-core";
-export { useDebounce, useThrottle, useAsyncLoading } from "@snowbitx/ui-core";
+export { createApis } from "@cynnie/ui-core";
+export { useOptions } from "@cynnie/ui-core";
+export { useDebounce, useThrottle, useAsyncLoading } from "@cynnie/ui-core";
 export type {
   DictOption,
   UseOptionsOptions,
@@ -14,7 +14,7 @@ export type {
   TableColumn,
   DialogOptions,
   DialogHandle,
-} from "@snowbitx/ui-core";
+} from "@cynnie/ui-core";
 export type { DescriptionItem } from "./components/ProDescriptions/index.vue";
 export {
   ProTable,

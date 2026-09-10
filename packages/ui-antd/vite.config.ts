@@ -9,7 +9,7 @@ import dts from "vite-plugin-dts";
 // peerDeps + workspace 依赖保持 external，使用方自行安装
 const externals = [
   /^vue($|\/)/,
-  /^@snowbitx\/ui-core($|\/)/,
+  /^@cynnie\/ui-core($|\/)/,
   /^ant-design-vue($|\/)/,
 ];
 

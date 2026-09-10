@@ -1,5 +1,5 @@
 {
-  "name": "@snowbitx/page-generator",
+  "name": "@cynnie/page-generator",
   "version": "0.0.0",
   "type": "module",
   "description": "从远端 JSON 页面描述生成 vue 文件的脚本包",

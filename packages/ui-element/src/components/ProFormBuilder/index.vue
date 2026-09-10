@@ -2,7 +2,7 @@
 import { ElCheckbox as Checkbox, ElDatePicker as DatePicker, ElInput as Input, ElInputNumber as InputNumber, ElSelect as Select } from "element-plus";
 import { omitBy } from "lodash-es";
 import { computed, h, ref, type Component } from "vue";
-import type { FormItem } from "@snowbitx/ui-core";
+import type { FormItem } from "@cynnie/ui-core";
 
 defineOptions({
   name: "ProFormBuilder",

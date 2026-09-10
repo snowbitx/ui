@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { useOptions } from "@snowbitx/ui-core";
+import { useOptions } from "@cynnie/ui-core";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { cn } from "../../lib/utils";
 

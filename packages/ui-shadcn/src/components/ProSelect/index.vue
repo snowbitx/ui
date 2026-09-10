@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { useOptions } from "@snowbitx/ui-core";
+import { useOptions } from "@cynnie/ui-core";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 
 defineOptions({

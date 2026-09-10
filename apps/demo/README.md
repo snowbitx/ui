@@ -9,7 +9,7 @@
 2. `pnpm gen:pages` —— 拉取 JSON → 拼 vue 文件字符串 → 写入 `src/pages/`
 3. `pnpm demo` —— 路由与左侧菜单按生成结果自动变化
 
-demo 固定使用 `@snowbitx/ui-antd`（页面生成模板写死 antd 版组件）。
+demo 固定使用 `@cynnie/ui-antd`（页面生成模板写死 antd 版组件）。
 
 需要逐个组件看用法/切 UI 库，去 playground（`pnpm dev`）；
 需要验证发包形态，去 smoke（`pnpm smoke`）。

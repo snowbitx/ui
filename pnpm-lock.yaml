@@ -32,10 +32,10 @@ importers:
 
   apps/demo:
     dependencies:
-      '@snowbitx/page-generator':
+      '@cynnie/page-generator':
         specifier: workspace:*
         version: link:../../packages/page-generator
-      '@snowbitx/ui-antd':
+      '@cynnie/ui-antd':
         specifier: workspace:*
         version: link:../../packages/ui-antd
       '@types/lodash-es':
@@ -93,13 +93,13 @@ importers:
 
   apps/playground:
     dependencies:
-      '@snowbitx/ui-antd':
+      '@cynnie/ui-antd':
         specifier: workspace:*
         version: link:../../packages/ui-antd
-      '@snowbitx/ui-element':
+      '@cynnie/ui-element':
         specifier: workspace:*
         version: link:../../packages/ui-element
-      '@snowbitx/ui-shadcn':
+      '@cynnie/ui-shadcn':
         specifier: workspace:*
         version: link:../../packages/ui-shadcn
       '@tailwindcss/vite':
@@ -187,16 +187,16 @@ importers:
 
   apps/smoke:
     dependencies:
-      '@snowbitx/ui-antd':
+      '@cynnie/ui-antd':
         specifier: workspace:*
         version: link:../../packages/ui-antd
-      '@snowbitx/ui-core':
+      '@cynnie/ui-core':
         specifier: workspace:*
         version: link:../../packages/ui-core
-      '@snowbitx/ui-element':
+      '@cynnie/ui-element':
         specifier: workspace:*
         version: link:../../packages/ui-element
-      '@snowbitx/ui-shadcn':
+      '@cynnie/ui-shadcn':
         specifier: workspace:*
         version: link:../../packages/ui-shadcn
       '@tailwindcss/vite':
@@ -258,7 +258,7 @@ importers:
 
   packages/ui-antd:
     dependencies:
-      '@snowbitx/ui-core':
+      '@cynnie/ui-core':
         specifier: workspace:^
         version: link:../ui-core
       lodash-es:
@@ -319,7 +319,7 @@ importers:
 
   packages/ui-element:
     dependencies:
-      '@snowbitx/ui-core':
+      '@cynnie/ui-core':
         specifier: workspace:^
         version: link:../ui-core
       lodash-es:
@@ -356,7 +356,7 @@ importers:
 
   packages/ui-shadcn:
     dependencies:
-      '@snowbitx/ui-core':
+      '@cynnie/ui-core':
         specifier: workspace:^
         version: link:../ui-core
       class-variance-authority:

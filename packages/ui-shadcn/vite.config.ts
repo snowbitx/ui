@@ -7,10 +7,10 @@ import dts from "vite-plugin-dts";
 
 // rolldown-vite 下 rollupOptions 已被忽略，external 必须写在 build.rolldownOptions
 // peerDeps + dependencies 保持 external；Tailwind 样式由使用方
-// 通过 @tailwindcss/vite 编译（import "@snowbitx/ui-shadcn/style.css"），这里不打 CSS
+// 通过 @tailwindcss/vite 编译（import "@cynnie/ui-shadcn/style.css"），这里不打 CSS
 const externals = [
   /^vue($|\/)/,
-  /^@snowbitx\/ui-core($|\/)/,
+  /^@cynnie\/ui-core($|\/)/,
   /^reka-ui($|\/)/,
   "vue-sonner",
   "lucide-vue-next",

@@ -13,8 +13,8 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@snowbitx/page-generator": "workspace:*",
-    "@snowbitx/ui-antd": "workspace:*",
+    "@cynnie/page-generator": "workspace:*",
+    "@cynnie/ui-antd": "workspace:*",
     "@types/lodash-es": "^4.17.12",
     "ant-design-vue": "^4.2.6",
     "lodash-es": "^4.17.21",

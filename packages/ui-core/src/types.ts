@@ -1,5 +1,5 @@
 /**
- * 组件库接口契约：@snowbitx/ui-antd 与 @snowbitx/ui-element 共同遵守的
+ * 组件库接口契约：@cynnie/ui-antd 与 @cynnie/ui-element 共同遵守的
  * 公共类型定义。各 UI 适配包的组件 props/events/slots 以此为准，保证
  * 两套实现可以互相替换（demo / 文档共用同一份调用代码）。
  */

@@ -1,4 +1,4 @@
-# @snowbitx/ui-antd
+# @cynnie/ui-antd
 
 基于 [ant-design-vue](https://antdv.com/) 的 SnowUI 二次封装组件库，提供开箱即用的中后台组件：
 
@@ -14,7 +14,7 @@
 ## 安装
 
 ```sh
-pnpm add @snowbitx/ui-antd ant-design-vue
+pnpm add @cynnie/ui-antd ant-design-vue
 ```
 
 peer 依赖：`vue ^3.5`、`ant-design-vue ^4.2`。
@@ -23,12 +23,12 @@ peer 依赖：`vue ^3.5`、`ant-design-vue ^4.2`。
 
 ```vue
 <script setup lang="ts">
-import { ProTable } from "@snowbitx/ui-antd";
-// 或按需深路径引入：import ProTable from "@snowbitx/ui-antd/components/ProTable";
+import { ProTable } from "@cynnie/ui-antd";
+// 或按需深路径引入：import ProTable from "@cynnie/ui-antd/components/ProTable";
 </script>
 ```
 
-同系列还有 [@snowbitx/ui-element](https://www.npmjs.com/package/@snowbitx/ui-element)（element-plus 版）与 [@snowbitx/ui-shadcn](https://www.npmjs.com/package/@snowbitx/ui-shadcn)（shadcn-vue 版），API 完全对齐，可按 UI 库切换。
+同系列还有 [@cynnie/ui-element](https://www.npmjs.com/package/@cynnie/ui-element)（element-plus 版）与 [@cynnie/ui-shadcn](https://www.npmjs.com/package/@cynnie/ui-shadcn)（shadcn-vue 版），API 完全对齐，可按 UI 库切换。
 
 ## License
 

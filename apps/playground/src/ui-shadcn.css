@@ -1,6 +1,6 @@
 /*
  * Tailwind v4 编译入口（playground 专用）：
- * 把 @snowbitx/ui-shadcn 的样式（设计令牌 + tailwind）编译成可注入的 CSS，
+ * 把 @cynnie/ui-shadcn 的样式（设计令牌 + tailwind）编译成可注入的 CSS，
  * ui-setup.ts 在 shadcn 模式下动态加载本文件并注入 <style> 标签。
  *
  * 说明：source(none) 关闭对 playground 自身源码的扫描，改用 @source 精确扫描
@@ -8,5 +8,5 @@
  * Tailwind 正常解析），因此用相对路径而不是写死某台机器的绝对路径——
  * 绝对路径在 CI / 其他人的机器上不存在，会导致扫不到任何工具类、样式全丢。
  */
-@import "@snowbitx/ui-shadcn/style.css" source(none);
+@import "@cynnie/ui-shadcn/style.css" source(none);
 @source "../../../packages/ui-shadcn/src";

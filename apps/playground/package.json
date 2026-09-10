@@ -14,9 +14,9 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@snowbitx/ui-antd": "workspace:*",
-    "@snowbitx/ui-element": "workspace:*",
-    "@snowbitx/ui-shadcn": "workspace:*",
+    "@cynnie/ui-antd": "workspace:*",
+    "@cynnie/ui-element": "workspace:*",
+    "@cynnie/ui-shadcn": "workspace:*",
     "@tailwindcss/vite": "^4.3.3",
     "@types/lodash-es": "^4.17.12",
     "ant-design-vue": "^4.2.6",

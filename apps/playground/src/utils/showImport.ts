@@ -2,18 +2,18 @@ import { currentUiMode } from '@/ui'
 
 /**
  * 把 demo 源码里面向文档站的 '@/ui' 导入语句，还原成用户实际项目里
- * 应该写的「真实发包名」——antd 模式显示 @snowbitx/ui-antd，
- * element 模式显示 @snowbitx/ui-element，shadcn 模式显示 @snowbitx/ui-shadcn。
+ * 应该写的「真实发包名」——antd 模式显示 @cynnie/ui-antd，
+ * element 模式显示 @cynnie/ui-element，shadcn 模式显示 @cynnie/ui-shadcn。
  * 保证文档展示与实际安装一致。
  */
 const PKG_BY_MODE: Record<string, string> = {
-  antd: '@snowbitx/ui-antd',
-  element: '@snowbitx/ui-element',
-  shadcn: '@snowbitx/ui-shadcn',
+  antd: '@cynnie/ui-antd',
+  element: '@cynnie/ui-element',
+  shadcn: '@cynnie/ui-shadcn',
 }
 
 export function showImport(source: string): string {
-  const pkg = PKG_BY_MODE[currentUiMode()] ?? '@snowbitx/ui-antd'
+  const pkg = PKG_BY_MODE[currentUiMode()] ?? '@cynnie/ui-antd'
   return source.replace(/from '@\/ui'/g, `from '${pkg}'`).replace(/from "@\/ui"/g, `from '${pkg}'`)
 }
 

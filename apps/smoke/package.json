@@ -10,10 +10,10 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
-    "@snowbitx/ui-antd": "workspace:*",
-    "@snowbitx/ui-core": "workspace:*",
-    "@snowbitx/ui-element": "workspace:*",
-    "@snowbitx/ui-shadcn": "workspace:*",
+    "@cynnie/ui-antd": "workspace:*",
+    "@cynnie/ui-core": "workspace:*",
+    "@cynnie/ui-element": "workspace:*",
+    "@cynnie/ui-shadcn": "workspace:*",
     "@tailwindcss/vite": "^4.3.3",
     "ant-design-vue": "^4.2.6",
     "element-plus": "^2.9.0",

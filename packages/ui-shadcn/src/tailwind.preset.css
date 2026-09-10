@@ -6,8 +6,8 @@
  *
  * 使用方二选一：
  * 1. 已有自己的 Tailwind 入口，只要 SnowUI 令牌：
- *    `@import "@snowbitx/ui-shadcn/tailwind.preset.css";`
- * 2. 想要开箱即用的完整样式：`import "@snowbitx/ui-shadcn/style.css"`。
+ *    `@import "@cynnie/ui-shadcn/tailwind.preset.css";`
+ * 2. 想要开箱即用的完整样式：`import "@cynnie/ui-shadcn/style.css"`。
  * 与 antd / element 的 reset 样式互斥，切换 UI 模式时由使用方动态加载其一。
  */
 @custom-variant dark (&:is(.dark *));

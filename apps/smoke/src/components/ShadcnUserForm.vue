@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import ProFormBuilder from '@snowbitx/ui-shadcn/components/ProFormBuilder'
+import ProFormBuilder from '@cynnie/ui-shadcn/components/ProFormBuilder'
 
 defineOptions({
   name: 'ShadcnUserForm',

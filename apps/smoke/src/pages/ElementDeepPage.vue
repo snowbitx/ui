@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 // 深路径导入：验证 package.json exports 的每个子路径都指向有效的 dist 文件
-import ProButton from '@snowbitx/ui-element/components/ProButton'
-import ProInput from '@snowbitx/ui-element/components/ProInput'
-import ProSelect from '@snowbitx/ui-element/components/ProSelect'
-import ProCheckboxGroup from '@snowbitx/ui-element/components/ProCheckboxGroup'
-import ProRadioGroup from '@snowbitx/ui-element/components/ProRadioGroup'
-import ProModal from '@snowbitx/ui-element/components/ProModal'
-import ProConfirmButton from '@snowbitx/ui-element/components/ProConfirmButton'
-import ProDescriptions from '@snowbitx/ui-element/components/ProDescriptions'
-import ProFormBuilder from '@snowbitx/ui-element/components/ProFormBuilder'
-import { openDialog } from '@snowbitx/ui-element/utils/openDialog'
-import { uiMessage } from '@snowbitx/ui-element'
+import ProButton from '@cynnie/ui-element/components/ProButton'
+import ProInput from '@cynnie/ui-element/components/ProInput'
+import ProSelect from '@cynnie/ui-element/components/ProSelect'
+import ProCheckboxGroup from '@cynnie/ui-element/components/ProCheckboxGroup'
+import ProRadioGroup from '@cynnie/ui-element/components/ProRadioGroup'
+import ProModal from '@cynnie/ui-element/components/ProModal'
+import ProConfirmButton from '@cynnie/ui-element/components/ProConfirmButton'
+import ProDescriptions from '@cynnie/ui-element/components/ProDescriptions'
+import ProFormBuilder from '@cynnie/ui-element/components/ProFormBuilder'
+import { openDialog } from '@cynnie/ui-element/utils/openDialog'
+import { uiMessage } from '@cynnie/ui-element'
 import Case from '../components/Case.vue'
 
 defineOptions({
@@ -39,7 +39,7 @@ const descItems = [
 </script>
 
 <template>
-  <h1>@snowbitx/ui-element 深路径导出</h1>
+  <h1>@cynnie/ui-element 深路径导出</h1>
   <p class="hint">每个 import 单独对应 exports 里的一个子路径（.../components/ProXxx、/utils/openDialog）</p>
 
   <Case title="components/ProButton + components/ProModal + components/ProConfirmButton">

@@ -2,7 +2,7 @@
 import { ref, useTemplateRef } from "vue";
 import ProFormBuilder from "../ProFormBuilder/index.vue";
 import type { FormInstance } from "element-plus";
-import type { FormItem, FormRules } from "@snowbitx/ui-core";
+import type { FormItem, FormRules } from "@cynnie/ui-core";
 
 defineOptions({
   name: "ProTableForm",

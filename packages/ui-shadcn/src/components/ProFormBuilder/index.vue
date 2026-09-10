@@ -2,7 +2,7 @@
 import { Checkbox as ShadCheckbox, Input as ShadInput, Select as ShadSelect, SelectTrigger as ShadSelectTrigger, SelectValue as ShadSelectValue, SelectContent as ShadSelectContent, SelectItem as ShadSelectItem, Textarea as ShadTextarea } from "../ui";
 import { omitBy } from "lodash-es";
 import { computed, h, ref, type Component } from "vue";
-import type { FormItem } from "@snowbitx/ui-core";
+import type { FormItem } from "@cynnie/ui-core";
 
 defineOptions({
   name: "ProFormBuilder",

@@ -1,5 +1,5 @@
 {
-  "name": "@snowbitx/ui-antd",
+  "name": "@cynnie/ui-antd",
   "version": "0.1.0",
   "type": "module",
   "description": "基于 ant-design-vue 的 SnowUI 二次封装组件库",
@@ -81,7 +81,7 @@
     "vue": "^3.5.17"
   },
   "dependencies": {
-    "@snowbitx/ui-core": "workspace:^",
+    "@cynnie/ui-core": "workspace:^",
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {

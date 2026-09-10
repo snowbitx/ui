@@ -1,8 +1,8 @@
 {
-  "name": "@snowbitx/ui-element",
+  "name": "@cynnie/ui-element",
   "version": "0.1.0",
   "type": "module",
-  "description": "基于 element-plus 的 SnowUI 二次封装组件库，API 与 @snowbitx/ui-antd 对齐",
+  "description": "基于 element-plus 的 SnowUI 二次封装组件库，API 与 @cynnie/ui-antd 对齐",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -81,7 +81,7 @@
     "vue": "^3.5.17"
   },
   "dependencies": {
-    "@snowbitx/ui-core": "workspace:^",
+    "@cynnie/ui-core": "workspace:^",
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {

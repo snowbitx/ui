@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { watch } from "vue";
-import { useDebounce } from "@snowbitx/ui-core";
+import { useDebounce } from "@cynnie/ui-core";
 import { Input } from "../ui/input";
 import { XIcon, SearchIcon } from "lucide-vue-next";
 import { Button } from "../ui/button";

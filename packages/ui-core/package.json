@@ -1,5 +1,5 @@
 {
-  "name": "@snowbitx/ui-core",
+  "name": "@cynnie/ui-core",
   "version": "0.1.0",
   "type": "module",
   "description": "SnowUI 无 UI 依赖的核心层：createApis / hooks / 类型契约",

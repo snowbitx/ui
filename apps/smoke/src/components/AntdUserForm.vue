@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import ProFormBuilder from '@snowbitx/ui-antd/components/ProFormBuilder'
+import ProFormBuilder from '@cynnie/ui-antd/components/ProFormBuilder'
 
 defineOptions({
   name: 'AntdUserForm',

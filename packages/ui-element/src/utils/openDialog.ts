@@ -1,7 +1,7 @@
 import { type Component, h, createApp, reactive, ref } from "vue";
 import { ElButton, ElCol, ElDialog, ElForm, ElFormItem, ElRow } from "element-plus";
 import ProFormBuilder from "../components/ProFormBuilder/index.vue";
-import type { DialogHandle } from "@snowbitx/ui-core";
+import type { DialogHandle } from "@cynnie/ui-core";
 
 // 避免每次调用都创建新空对象
 const EMPTY_OBJ = Object.freeze({});

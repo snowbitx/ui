@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ProButton, openDialog, renderDialogForm, uiMessage } from '@snowbitx/ui-shadcn'
+import { ProButton, openDialog, renderDialogForm, uiMessage } from '@cynnie/ui-shadcn'
 import Case from '../components/Case.vue'
 import ShadcnUserForm from '../components/ShadcnUserForm.vue'
 import { tableFormItems, tableRules } from '../datasource'
@@ -35,7 +35,7 @@ function openRenderDialogForm() {
 </script>
 
 <template>
-  <h1>@snowbitx/ui-shadcn 命令式弹窗</h1>
+  <h1>@cynnie/ui-shadcn 命令式弹窗</h1>
   <p class="hint">openDialog / renderDialogForm 内部走独立 createApp，最容易在产物形态下出问题，单独验证</p>
 
   <Case title="openDialog + 自定义内容组件">

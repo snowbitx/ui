@@ -11,7 +11,7 @@ import {
   ProConfirmButton,
   ProDescriptions,
   uiMessage,
-} from '@snowbitx/ui-antd'
+} from '@cynnie/ui-antd'
 import Case from '../components/Case.vue'
 import { fetchTypes } from '../datasource'
 
@@ -43,8 +43,8 @@ function save() {
 </script>
 
 <template>
-  <h1>@snowbitx/ui-antd 主入口</h1>
-  <p class="hint">import ... from '@snowbitx/ui-antd'（包根 barrel 导出，来自 dist）</p>
+  <h1>@cynnie/ui-antd 主入口</h1>
+  <p class="hint">import ... from '@cynnie/ui-antd'（包根 barrel 导出，来自 dist）</p>
 
   <Case title="ProButton / ProCountdownButton / uiMessage">
     <div class="row">

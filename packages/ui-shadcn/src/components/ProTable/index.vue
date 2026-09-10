@@ -16,7 +16,7 @@ import { Checkbox } from "../ui/checkbox";
 import { Loader } from "../ui/loader";
 import ProConfirmButton from "../ProConfirmButton/index.vue";
 import { uiMessage } from "../../utils/uiMessage";
-import type { PageApis, TableColumn, FormItem, FormRules } from "@snowbitx/ui-core";
+import type { PageApis, TableColumn, FormItem, FormRules } from "@cynnie/ui-core";
 
 defineOptions({
   name: "ProTable",

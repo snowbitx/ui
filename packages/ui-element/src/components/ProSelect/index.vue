@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { omit } from "lodash-es";
-import { useOptions } from "@snowbitx/ui-core";
+import { useOptions } from "@cynnie/ui-core";
 
 defineOptions({
   name: "ProSelect",

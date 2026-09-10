@@ -11,7 +11,7 @@ import {
   ProConfirmButton,
   ProDescriptions,
   uiMessage,
-} from '@snowbitx/ui-shadcn'
+} from '@cynnie/ui-shadcn'
 import Case from '../components/Case.vue'
 import { fetchTypes } from '../datasource'
 
@@ -43,8 +43,8 @@ function save() {
 </script>
 
 <template>
-  <h1>@snowbitx/ui-shadcn 主入口</h1>
-  <p class="hint">import ... from '@snowbitx/ui-shadcn'（包根 barrel 导出，来自 dist；样式为 Tailwind 编译产物）</p>
+  <h1>@cynnie/ui-shadcn 主入口</h1>
+  <p class="hint">import ... from '@cynnie/ui-shadcn'（包根 barrel 导出，来自 dist；样式为 Tailwind 编译产物）</p>
 
   <Case title="ProButton / ProCountdownButton / uiMessage">
     <div class="row">

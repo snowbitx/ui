@@ -1,8 +1,8 @@
-# snowbitx-ui
+# cynnie-ui
 
 基于 Vue 3 的表格组件库与「JSON 渲染页面」演示项目。同一套组件 API 提供三个 UI 实现：
-`@snowbitx/ui-antd`（ant-design-vue）、`@snowbitx/ui-element`（element-plus）与
-`@snowbitx/ui-shadcn`（shadcn-vue / reka-ui + Tailwind CSS v4），按需选用。
+`@cynnie/ui-antd`（ant-design-vue）、`@cynnie/ui-element`（element-plus）与
+`@cynnie/ui-shadcn`（shadcn-vue / reka-ui + Tailwind CSS v4），按需选用。
 
 ## Monorepo 结构
 
@@ -90,11 +90,11 @@ mock-server，playground 的 `createApis` 已内置兜底（`src/ui/demo-fallbac
 
 后端在这个文档上登记新页面后，重新执行 `pnpm gen:pages` 即可，demo 里就会多出一个完整可用的增删改查页面。
 
-## 组件库用法（@snowbitx/ui-antd）
+## 组件库用法（@cynnie/ui-antd）
 
 ```vue
 <script setup lang="ts">
-import { ProTable, createApis } from "@snowbitx/ui-antd";
+import { ProTable, createApis } from "@cynnie/ui-antd";
 
 // createApis 是组件库提供的工具函数：传入接口基地址，
 // 返回 ProTable 需要的 get / create / update / remove 四个请求方法（基于 fetch）。

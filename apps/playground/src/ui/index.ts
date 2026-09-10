@@ -3,9 +3,9 @@
  *
  * 运行时按 cookie（snowui-ui=antd|element|shadcn）选择实现，异步加载后逐个
  * 填充同名导出（ProTable / openDialog / createApis ...）：
- *   - 默认 antd 版（@snowbitx/ui-antd）
- *   - 右上角开关 / ?ui=element 写 cookie 并整页重载，走 @snowbitx/ui-element
- *   - 右上角开关 / ?ui=shadcn 写 cookie 并整页重载，走 @snowbitx/ui-shadcn
+ *   - 默认 antd 版（@cynnie/ui-antd）
+ *   - 右上角开关 / ?ui=element 写 cookie 并整页重载，走 @cynnie/ui-element
+ *   - 右上角开关 / ?ui=shadcn 写 cookie 并整页重载，走 @cynnie/ui-shadcn
  *     （shadcn 版基于 Tailwind CSS v4，setupUi 时会额外注入组件库的 style.css）
  *
  * demo 里 `import { ProTable } from '@/ui'` 是静态导入，组件在实现包
@@ -31,10 +31,10 @@ export function switchUiMode(mode: UiMode) {
 
 const impl: Record<string, any> =
   currentUiMode() === 'element'
-    ? await import('@snowbitx/ui-element')
+    ? await import('@cynnie/ui-element')
     : currentUiMode() === 'shadcn'
-      ? await import('@snowbitx/ui-shadcn')
-      : await import('@snowbitx/ui-antd')
+      ? await import('@cynnie/ui-shadcn')
+      : await import('@cynnie/ui-antd')
 
 // 把实现包的全部导出平铺为本模块导出（含类型侧的运行时值）；default 导出无消费方，解构丢弃
 const { default: _, ...named } = impl as Record<string, any>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import ProFormBuilder from '@snowbitx/ui-element/components/ProFormBuilder'
+import ProFormBuilder from '@cynnie/ui-element/components/ProFormBuilder'
 
 defineOptions({
   name: 'ElementUserForm',
