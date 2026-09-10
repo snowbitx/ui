@@ -1,8 +1,8 @@
 {
   "name": "@cynnie/ui-core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
-  "description": "SnowUI 无 UI 依赖的核心层：createApis / hooks / 类型契约",
+  "description": "cynnie-ui 无 UI 依赖的核心层：createApis / hooks / 类型契约",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -43,5 +43,6 @@
     "vite-plugin-dts": "^4.5.4",
     "vue": "^3.5.17",
     "vue-tsc": "^2.2.10"
-  }
+  },
+  "homepage": "https://ui-playground-puce.vercel.app/"
 }

@@ -1,5 +1,5 @@
 /**
- * SnowUI shadcn 版的全局样式（开箱即用入口）：
+ * cynnie-ui shadcn 版的全局样式（开箱即用入口）：
  * - Tailwind CSS v4（@tailwindcss/vite 插件编译，@import "tailwindcss"）
  * - tw-animate-css 提供 data-[state] 进出场动画工具类
  * - 设计令牌与主题映射在同目录 tailwind.preset.css

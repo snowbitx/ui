@@ -1,6 +1,6 @@
 # @cynnie/ui-core
 
-SnowUI 组件库的无 UI 依赖核心层：`createApis`、通用 hooks（`useOptions` / `useDebounce` / `useThrottle` / `useAsyncLoading`）以及类型契约（`FormItem`、`TableColumn`、`DialogOptions` 等）。
+cynnie-ui 组件库的无 UI 依赖核心层：`createApis`、通用 hooks（`useOptions` / `useDebounce` / `useThrottle` / `useAsyncLoading`）以及类型契约（`FormItem`、`TableColumn`、`DialogOptions` 等）。
 
 `@cynnie/ui-antd`、`@cynnie/ui-element`、`@cynnie/ui-shadcn` 均依赖本包，一般无需单独安装；如果你的项目只用核心工具函数，可以只装它。
 

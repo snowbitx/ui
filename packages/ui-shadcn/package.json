@@ -1,8 +1,8 @@
 {
   "name": "@cynnie/ui-shadcn",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
-  "description": "基于 shadcn-vue（reka-ui + Tailwind CSS v4）的 SnowUI 二次封装组件库，API 与 @cynnie/ui-antd / @cynnie/ui-element 对齐",
+  "description": "基于 shadcn-vue（reka-ui + Tailwind CSS v4）的 cynnie-ui 二次封装组件库：ProTable / ProFormBuilder / 命令式弹窗等",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -105,5 +105,6 @@
     "vite-plugin-dts": "^4.5.4",
     "vue": "^3.5.17",
     "vue-tsc": "^2.2.10"
-  }
+  },
+  "homepage": "https://ui-playground-puce.vercel.app/?ui=shadcn"
 }

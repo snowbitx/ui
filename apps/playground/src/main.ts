@@ -7,7 +7,7 @@ import { currentUiMode } from './ui'
 // 支持 URL 带 ?ui=antd|element|shadcn 分享/书签：写入 cookie 供 src/ui 与 ui-setup 读取
 const match = window.location.search.match(/[?&]ui=(antd|element|shadcn)(?:&|$)/)
 if (match && match[1] !== currentUiMode()) {
-  document.cookie = `snowui-ui=${match[1]}; path=/; max-age=31536000`
+  document.cookie = `cynnie-ui=${match[1]}; path=/; max-age=31536000`
   window.location.reload()
 }
 

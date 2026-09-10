@@ -16,7 +16,7 @@ function isActive(path: string) {
 <template>
   <a-layout class="app-layout">
     <a-layout-sider theme="light" width="200">
-      <div class="app-logo">SnowUI Demo</div>
+      <div class="app-logo">cynnie-ui Demo</div>
       <a-menu mode="inline" :selected-keys="[route.path]">
         <a-menu-item
           v-for="item in menus"

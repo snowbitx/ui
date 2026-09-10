@@ -1,7 +1,7 @@
 /**
  * UI 适配入口：所有 demo / 文档统一从这里导入，不直接 import 具体实现包。
  *
- * 运行时按 cookie（snowui-ui=antd|element|shadcn）选择实现，异步加载后逐个
+ * 运行时按 cookie（cynnie-ui=antd|element|shadcn）选择实现，异步加载后逐个
  * 填充同名导出（ProTable / openDialog / createApis ...）：
  *   - 默认 antd 版（@cynnie/ui-antd）
  *   - 右上角开关 / ?ui=element 写 cookie 并整页重载，走 @cynnie/ui-element
@@ -20,12 +20,12 @@ export const UI_MODES: UiMode[] = ['antd', 'element', 'shadcn']
 
 export function currentUiMode(): UiMode {
   if (typeof document === 'undefined') return 'antd'
-  const match = document.cookie.match(/(?:^|;\s*)snowui-ui=(antd|element|shadcn)(?:;|$)/)
+  const match = document.cookie.match(/(?:^|;\s*)cynnie-ui=(antd|element|shadcn)(?:;|$)/)
   return (match?.[1] as UiMode) || 'antd'
 }
 
 export function switchUiMode(mode: UiMode) {
-  document.cookie = `snowui-ui=${mode}; path=/; max-age=31536000`
+  document.cookie = `cynnie-ui=${mode}; path=/; max-age=31536000`
   window.location.reload()
 }
 

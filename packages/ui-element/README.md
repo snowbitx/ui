@@ -1,6 +1,8 @@
 # @cynnie/ui-element
 
-基于 [element-plus](https://element-plus.org/) 的 SnowUI 二次封装组件库，API 与 `@cynnie/ui-antd` 完全对齐，提供开箱即用的中后台组件：
+基于 [element-plus](https://element-plus.org/) 的 cynnie-ui 二次封装组件库，提供开箱即用的中后台组件：
+
+**[在线文档 & 演示](https://ui-playground-puce.vercel.app/?ui=element)**
 
 - **ProTable** — 搜索表单 + 表格 + 分页一体化
 - **ProFormBuilder** — JSON 配置化表单
@@ -28,7 +30,7 @@ import { ProTable } from "@cynnie/ui-element";
 </script>
 ```
 
-同系列还有 [@cynnie/ui-antd](https://www.npmjs.com/package/@cynnie/ui-antd)（ant-design-vue 版）与 [@cynnie/ui-shadcn](https://www.npmjs.com/package/@cynnie/ui-shadcn)（shadcn-vue 版），API 完全对齐，可按 UI 库切换。
+同系列还有 [@cynnie/ui-antd](https://www.npmjs.com/package/@cynnie/ui-antd)（ant-design-vue 版）与 [@cynnie/ui-shadcn](https://www.npmjs.com/package/@cynnie/ui-shadcn)（shadcn-vue 版），可按 UI 库选用。
 
 ## License
 

@@ -2,7 +2,7 @@
 
 组件演示站（文档站）：每个二次封装组件一个文档页（效果 / 代码切换 + API 表格），仿 ant-design-vue 官网。
 
-页面全部**手写**，通过 `src/ui` 代理层导入组件——代理层按 cookie（`snowui-ui`）在
+页面全部**手写**，通过 `src/ui` 代理层导入组件——代理层按 cookie（`cynnie-ui`）在
 `@cynnie/ui-antd` / `@cynnie/ui-element` / `@cynnie/ui-shadcn` 之间切换，
 右上角开关或 URL 带 `?ui=element` 即可换实现，供三种 UI 版本对照开发。
 

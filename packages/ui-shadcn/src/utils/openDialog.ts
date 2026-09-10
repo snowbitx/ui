@@ -26,7 +26,7 @@ export function openDialog(
   const open = ref(true);
   const instance = ref<Record<string, any>>();
   const container = document.createElement("div");
-  container.setAttribute("data-snowui-dialog-container", "");
+  container.setAttribute("data-cynnie-dialog-container", "");
   const loading = ref(false);
   document.body.appendChild(container);
 

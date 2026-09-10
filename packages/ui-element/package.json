@@ -1,8 +1,8 @@
 {
   "name": "@cynnie/ui-element",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
-  "description": "基于 element-plus 的 SnowUI 二次封装组件库，API 与 @cynnie/ui-antd 对齐",
+  "description": "基于 element-plus 的 cynnie-ui 二次封装组件库：ProTable / ProFormBuilder / 命令式弹窗等",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -93,5 +93,6 @@
     "vite": "npm:rolldown-vite@^7.3.1",
     "vite-plugin-dts": "^4.5.4",
     "vue-tsc": "^2.2.10"
-  }
+  },
+  "homepage": "https://ui-playground-puce.vercel.app/?ui=element"
 }

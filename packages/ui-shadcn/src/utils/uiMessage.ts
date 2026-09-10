@@ -13,9 +13,9 @@ let toasterMounted = false;
 function ensureToaster() {
   if (toasterMounted || typeof document === "undefined") return;
   toasterMounted = true;
-  if (document.querySelector("[data-snowui-sonner-toaster]")) return;
+  if (document.querySelector("[data-cynnie-sonner-toaster]")) return;
   const container = document.createElement("div");
-  container.setAttribute("data-snowui-sonner-toaster", "");
+  container.setAttribute("data-cynnie-sonner-toaster", "");
   document.body.appendChild(container);
   const app = createApp({ render: () => h(Toaster, { position: "top-center", richColors: true }) });
   app.mount(container);

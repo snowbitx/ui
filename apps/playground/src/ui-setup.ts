@@ -14,7 +14,7 @@ export const uiMode = currentUiMode()
 async function injectShadcnStyle() {
   const css: string = (await import('./ui-shadcn.css?inline')).default
   const styleEl = document.createElement('style')
-  styleEl.setAttribute('data-snowui-shadcn', '')
+  styleEl.setAttribute('data-cynnie-shadcn', '')
   styleEl.textContent = css
   document.head.appendChild(styleEl)
 }

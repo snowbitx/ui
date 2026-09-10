@@ -1,11 +1,11 @@
 /**
- * SnowUI shadcn 版的设计令牌与主题映射（不含 @import "tailwindcss"）：
+ * cynnie-ui shadcn 版的设计令牌与主题映射（不含 @import "tailwindcss"）：
  * - shadcn 设计令牌（CSS variables，语义色 primary / destructive / muted ...）
  * - @theme inline 把 CSS variables 映射成 Tailwind 语义色工具类
  * - @layer base 的全局 reset
  *
  * 使用方二选一：
- * 1. 已有自己的 Tailwind 入口，只要 SnowUI 令牌：
+ * 1. 已有自己的 Tailwind 入口，只要 cynnie-ui 令牌：
  *    `@import "@cynnie/ui-shadcn/tailwind.preset.css";`
  * 2. 想要开箱即用的完整样式：`import "@cynnie/ui-shadcn/style.css"`。
  * 与 antd / element 的 reset 样式互斥，切换 UI 模式时由使用方动态加载其一。
@@ -129,7 +129,7 @@
 }
 
 /* 独立 createApp 挂载的命令式弹窗容器：避免挂在文档流里产生滚动条位移 */
-[data-snowui-dialog-container] {
+[data-cynnie-dialog-container] {
   position: fixed;
   top: 0;
   left: 0;

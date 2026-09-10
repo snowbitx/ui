@@ -20,7 +20,7 @@ export function showImport(source: string): string {
 /**
  * 文档正文措辞按当前模式返回对应的底层组件名：
  * antd 模式说「同 a-table columns」，element 模式说「同 el-table columns」，
- * shadcn 模式说「SnowUI shadcn 组件的 columns」（shadcn 版是自定义封装，没有原生标签可对应）。
+ * shadcn 模式说「cynnie-ui shadcn 组件的 columns」（shadcn 版是自定义封装，没有原生标签可对应）。
  */
 export function docTerm(antdName: string, elementName: string, shadcnName?: string): string {
   const mode = currentUiMode()

@@ -23,7 +23,7 @@ async function setup(app: App) {
           ? cssModule
           : Object.values(cssModule).find((v) => typeof v === 'string') || ''
     const styleEl = document.createElement('style')
-    styleEl.setAttribute('data-snowui-shadcn', '')
+    styleEl.setAttribute('data-cynnie-shadcn', '')
     styleEl.textContent = css
     document.head.appendChild(styleEl)
   } else {

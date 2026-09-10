@@ -35,7 +35,7 @@ const activeAccent = modeAccent[uiMode]
     <aside class="pg-sider">
       <div class="pg-logo">
         <div class="pg-logo-inner">
-          <strong>SnowUI</strong>
+          <strong>cynnie-ui</strong>
           <span>组件演示</span>
         </div>
       </div>

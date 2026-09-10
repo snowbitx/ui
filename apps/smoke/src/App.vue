@@ -19,7 +19,7 @@ function go(path: string) {
   <div class="smoke-shell">
     <aside class="smoke-sider">
       <div class="smoke-logo">
-        <strong>SnowUI Smoke</strong>
+        <strong>cynnie-ui Smoke</strong>
         <span>打包产物冒烟</span>
       </div>
       <nav class="smoke-menu">

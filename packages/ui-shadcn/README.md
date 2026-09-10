@@ -1,6 +1,8 @@
 # @cynnie/ui-shadcn
 
-基于 [shadcn-vue](https://www.shadcn-vue.com/)（reka-ui + Tailwind CSS v4）的 SnowUI 二次封装组件库，API 与 `@cynnie/ui-antd` / `@cynnie/ui-element` 完全对齐：
+基于 [shadcn-vue](https://www.shadcn-vue.com/)（reka-ui + Tailwind CSS v4）的 cynnie-ui 二次封装组件库：
+
+**[在线文档 & 演示](https://ui-playground-puce.vercel.app/?ui=shadcn)**
 
 - **ProTable** — 搜索表单 + 表格 + 分页一体化
 - **ProFormBuilder** — JSON 配置化表单
@@ -42,7 +44,7 @@ import { ProTable } from "@cynnie/ui-shadcn";
 </script>
 ```
 
-同系列还有 [@cynnie/ui-antd](https://www.npmjs.com/package/@cynnie/ui-antd)（ant-design-vue 版）与 [@cynnie/ui-element](https://www.npmjs.com/package/@cynnie/ui-element)（element-plus 版），API 完全对齐，可按 UI 库切换。
+同系列还有 [@cynnie/ui-antd](https://www.npmjs.com/package/@cynnie/ui-antd)（ant-design-vue 版）与 [@cynnie/ui-element](https://www.npmjs.com/package/@cynnie/ui-element)（element-plus 版），可按 UI 库选用。
 
 ## License
 
