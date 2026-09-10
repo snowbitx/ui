@@ -13,13 +13,9 @@ concurrency:
 
 jobs:
   publish:
-    # 只有包版本号发生变更的提交才发布，其余 push 跳过
-    if: github.repository_owner == 'snowbitx'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
 
       - uses: pnpm/action-setup@v4
 
@@ -36,12 +32,25 @@ jobs:
       - name: Build packages
         run: pnpm --filter "@cynnie/ui-*" build
 
-      - name: Publish changed packages
+      # 对比本地版本与 npm registry 上已发布版本，只发布有变化的包
+      - name: Publish packages whose version changed
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          pnpm --filter "@cynnie/ui-*" publish --no-git-checks --reporter=append-only 2>&1 | tee /tmp/publish.log
-          if grep -qE "npm error (E403|E404|EPUBLISHCONFLICT)" /tmp/publish.log; then
-            echo "::warning::Publish failed, see log above"
-            exit 1
+          set -e
+          published=0
+          for pkg in ui-core ui-antd ui-element ui-shadcn; do
+            name="@cynnie/$pkg"
+            local_version=$(node -p "require('./packages/$pkg/package.json').version")
+            remote_version=$(npm view "$name" version 2>/dev/null || echo "none")
+            if [ "$local_version" = "$remote_version" ]; then
+              echo "$name@$local_version already published, skipping"
+            else
+              echo "Publishing $name@$local_version (registry has: $remote_version)"
+              pnpm --filter "$name" publish --no-git-checks --access public
+              published=$((published+1))
+            fi
+          done
+          if [ "$published" -eq 0 ]; then
+            echo "No version changes to publish."
           fi
