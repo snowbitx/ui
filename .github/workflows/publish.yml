@@ -1,0 +1,47 @@
+name: Publish to npm
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "packages/**"
+      - ".github/workflows/publish.yml"
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    # 只有包版本号发生变更的提交才发布，其余 push 跳过
+    if: github.repository_owner == 'snowbitx'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          registry-url: https://registry.npmjs.org/
+          scope: "@cynnie"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build packages
+        run: pnpm --filter "@cynnie/ui-*" build
+
+      - name: Publish changed packages
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          pnpm --filter "@cynnie/ui-*" publish --no-git-checks --reporter=append-only 2>&1 | tee /tmp/publish.log
+          if grep -qE "npm error (E403|E404|EPUBLISHCONFLICT)" /tmp/publish.log; then
+            echo "::warning::Publish failed, see log above"
+            exit 1
+          fi
